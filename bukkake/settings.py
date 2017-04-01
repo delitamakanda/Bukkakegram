@@ -140,4 +140,4 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-from bukkake.settings_local import *
+#from bukkake.settings_local import *

@@ -1,13 +1,7 @@
 machine:
  python:
   version: 2.7.5
-  
+
 dependencies:
  override:
   - pip install -r requirements.txt
-  
-test:
- override:
-  - echo "test"
-    
-   
