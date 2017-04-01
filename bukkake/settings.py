@@ -140,9 +140,4 @@ STATICFILES_DIRS = (
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-# cloudinary config
-cloudinary.config(
-    cloud_name = "hctpm7uyi",
-    api_key = "817934792794216",
-    api_secret = "pK8kZUuZnp1S-jhEC9ls2yvXbS4",
-)
+from bukkake.settings_local import *
