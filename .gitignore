@@ -86,6 +86,7 @@ ENV/
 *.pyc
 .env
 /*.pyc
+db.sqlite3
 
 # Spyder project settings
 .spyderproject
