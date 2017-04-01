@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cloudinary %}
+
+{% block content %}
+    <h2>{{bukkake.name}}</h2>
+    <!--img src="{{bukkake.image.url}}" height="200"-->
+    {% cloudinary image width=200 height=200 crop="fill" %}
+    <div class="panel-body">
+    <p>{{bukkake.material}}</p>
+      {% if bukkake.value > O %}
+        <p>{{bukkake.value}} €</p>
+      {% else %}
+        <p>hello</p>
+    {% endif %}
+    <p>{{bukkake.location}}</p>
+        <button id="likes" data-id="{{bukkake.id}}" class="btn btn-raised btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+            {% if bukkake.likes > 0 %}
+            {{ bukkake.likes }}
+            {% endif %}
+        </button>
+    </div>
+<hr/>
+{% endblock %}

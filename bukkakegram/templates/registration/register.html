@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<h2>Signup for showing your bukkake</h2>
+<form action="." method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class="btn btn-raised btn-success" value="Register" />
+</form>
+{% endblock %}

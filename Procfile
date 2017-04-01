@@ -1,0 +1,1 @@
+web: gunicorn bukkakegram.wsgi --log-file -

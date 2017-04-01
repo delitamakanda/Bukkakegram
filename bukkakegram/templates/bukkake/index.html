@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load cloudinary %}
+{% block content %}
+<div class="row bukkake">
+  {% for bukkake in bukkakes %}
+  <div class="col-md-4 col-xs-12 col-sm-4">
+    <a href="/{{bukkake.id}}/">
+  <div class="product-title">
+      <h4>
+        {{bukkake.name}}
+      </h4>
+      <a href="/user/{{bukkake.user.username}}/">
+        <p>by: {{bukkake.user.username}}</p>
+      </a>
+  </div>
+  <div class="product-image">
+      <!--img src="{{bukkake.image.url}}" width="200"-->
+      {% cloudinary bukkake.image width=200 height=200 crop="fill" %}
+  </div>
+
+      <button id="likes" data-id="{{bukkake.id}}" class="btn btn-raised btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+          {% if bukkake.likes > 0 %}
+          {{ bukkake.likes }}
+          {% endif %}
+      </button>
+    </a>
+  </div>
+  {% if forloop.counter|divisibleby:3 %}
+  </div><div class="row bukkake">
+  {% endif %}
+  {% endfor %}
+</div>
+<hr/>
+{% if user.is_authenticated %}
+<h4>Add Bukkake Prank</h4>
+<form enctype="multipart/form-data" action="post_url/" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit" class="btn btn-raised btn-success" />
+</form>
+<br/>
+{% endif %}
+{% endblock %}

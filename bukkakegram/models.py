@@ -1,0 +1,23 @@
+from __future__ import unicode_literals
+from django.contrib.auth.models import User
+from django.db import models
+from cloudinary.models import CloudinaryField
+
+# Create your models here.
+class Bukkake(models.Model):
+  user = models.ForeignKey(User)
+  name = models.CharField(max_length=100)
+  value = models.DecimalField(max_digits=10,decimal_places=2, blank=True)
+  material = models.CharField(max_length=100, blank=True)
+  location = models.CharField(max_length=100, blank=True)
+  #image = models.ImageField(upload_to='bukkake_image', default='media/default.png')
+  image = CloudinaryField('image')
+  likes = models.IntegerField(default=0)
+
+  def __str__(self):
+    return self.name
+    #try:
+        #public_id = self.image.public_id
+    #except AttributeError:
+        #public_id = ''
+    #return "Photo <%s:%s>" % (self.name, public_id)
