@@ -2,7 +2,7 @@
 refactor of bukkakegram
 
 # CirclCI
-en attente
+[![CircleCI](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master)
 
 # Use virtualenv
 1. sudo pip install virtualenv
