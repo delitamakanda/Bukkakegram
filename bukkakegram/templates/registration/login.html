@@ -3,9 +3,19 @@
 {% block content %}
 
 <h2>Login</h2>
+<div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
 <form action="." method="POST">
   {% csrf_token %}
   {{ form.as_p }}
   <input type="submit" class="btn btn-raised btn-success" value="Submit" />
 </form>
+</div>
+<div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
+
+<!--a class="btn btn-raised btn-success" href="{% url 'social:begin' 'google-oauth2' %}">Google+</a><br-->
+<a class="btn btn-raised btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
+<a class="btn btn-raised btn-default" href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+<a class="btn btn-raised btn-info" href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a>
+</div>
 {% endblock %}

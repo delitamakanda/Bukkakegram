@@ -15,3 +15,10 @@ distribute==0.6.27
 poster==0.8.1
 wsgiref==0.1.2
 hellowebapp-deploy==1.0.2
+PyJWT==1.4.2
+oauthlib==2.0.2
+python-openid==2.2.5
+requests==2.13.0
+requests-oauthlib==0.8.0
+social-auth-app-django==1.1.0
+social-auth-core==1.2.0

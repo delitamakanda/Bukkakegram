@@ -38,8 +38,8 @@ class LoginForm(forms.Form):
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', max_length=64, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     email = forms.EmailField(label='Email Address', max_length=255, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(label='First name', max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(label='Last name', max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))

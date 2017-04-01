@@ -1,11 +1,12 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf import settings
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 from django.views.static import serve
 from . import views
 
 urlpatterns = [
     url(r'^user/(\w+)/$', views.profile, name='profile'),
+    #url(r'^done/$', views.done, name='done'),
     url(r'^$', views.index, name='index'),
     url(r'^([0-9]+)/$', views.detail, name='detail'),
     url(r'^post_url/$', views.post_bukkake, name="post_bukkake"),
@@ -14,7 +15,9 @@ urlpatterns = [
     url(r'^like_bukkake/$', views.like_bukkake, name='like_bukkake'),
     url(r'^register/$', views.register_view, name="register"),
     url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
-    url(r'^$', RedirectView.as_view(pattern_name='browse')),
+    url(r'^settings/$', views.settings, name='settings'),
+    url(r'^settings/password/$', views.password, name='password'),
+    url('', include('social_django.urls', namespace='social')),
 ]
 
 

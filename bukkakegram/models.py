@@ -14,6 +14,9 @@ class Bukkake(models.Model):
   image = CloudinaryField('image')
   likes = models.IntegerField(default=0)
 
+  def get_absolute_url(self):
+      return self.id
+
   def __str__(self):
     return self.name
     #try:
