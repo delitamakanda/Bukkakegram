@@ -5,5 +5,9 @@ machine:
 dependencies:
  override:
   - pip install -r requirements.txt
+  
+test:
+ override:
+  - echo "test"
     
    
