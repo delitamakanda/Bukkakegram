@@ -1,1 +1,1 @@
-web: gunicorn bukkakegram.wsgi --log-file -
+web: waitress-serve --port=$PORT bukkake.wsgi:application
