@@ -1,6 +1,5 @@
 {% load cloudinary %}
 {% load staticfiles %}
-{% cloudinary_includes %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -66,12 +65,18 @@
       <br>
       <br>
     </footer>
-    <script type="text/javascript" src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'scripts/bootstrap.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'scripts/npm.js' %}"></script>
-    <script type="text/javascript" src="{% static 'scripts/material.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'scripts/ripples.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'scripts/main.js' %}"></script>
+    <script src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'scripts/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'scripts/npm.js' %}"></script>
+    <script src="{% static 'scripts/material.min.js' %}"></script>
+    <script src="{% static 'scripts/ripples.min.js' %}"></script>
+    <script src="{% static 'scripts/main.js' %}"></script>
+    {% cloudinary_includes %}
+
+    <script>
+        $.cloudinary.responsive()
+    </script>
 
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

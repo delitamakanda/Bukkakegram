@@ -14,5 +14,4 @@ $(function() {
     });
 
     $.material.init()
-    $.cloudinary.responsive()
 });
