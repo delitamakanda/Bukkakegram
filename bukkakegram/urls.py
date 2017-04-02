@@ -1,6 +1,6 @@
 from django.conf.urls import url, include
 from django.conf import settings
-from django.views.generic import TemplateView
+#from django.views.generic import TemplateView
 from django.views.static import serve
 from bukkakegram.views import BukkakeSearchListView
 from . import views
@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout_view, name="logout"),
     url(r'^like_bukkake/$', views.like_bukkake, name='like_bukkake'),
     url(r'^register/$', views.register_view, name="register"),
-    url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
+    #url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^settings/password/$', views.password, name='password'),
     url(r'^search/$', BukkakeSearchListView.as_view(), name='blog_search_list_view'),

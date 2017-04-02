@@ -119,7 +119,7 @@ def like_bukkake(request):
             likes = bukkake.likes + 1
             bukkake.likes = likes
             bukkake.save()
-    return HttpResponseRedirect(likes)
+        return HttpResponseRedirect(likes)
 
 def save_profile(backend, *args, **kwargs):
     if backend.name == 'google-oauth2':
