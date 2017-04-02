@@ -7,9 +7,9 @@ from cloudinary.models import CloudinaryField
 class Bukkake(models.Model):
   user = models.ForeignKey(User)
   name = models.CharField(max_length=100)
-  value = models.DecimalField(max_digits=10,decimal_places=2, blank=True)
-  material = models.CharField(max_length=100, blank=True)
-  location = models.CharField(max_length=100, blank=True)
+  value = models.DecimalField(max_digits=10,decimal_places=2, blank=True, null=True)
+  material = models.CharField(max_length=100, blank=True, null=True)
+  location = models.CharField(max_length=100, blank=True, null=True)
   #image = models.ImageField(upload_to='bukkake_image', default='media/default.png')
   image = CloudinaryField('image')
   likes = models.IntegerField(default=0)
