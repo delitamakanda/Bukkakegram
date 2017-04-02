@@ -40,7 +40,6 @@
           <ul class="nav navbar-nav navbar-right">
           {% if user.is_authenticated %}
             <li><a class="" href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
-            <li><a class="" href="{% url 'settings' %}">Settings</a></li>
             <li><a class="" href="{% url 'logout' %}">Logout</a></li>
           {% else %}
             <li><a class="" href="{% url 'login' %}">Login</a></li>
