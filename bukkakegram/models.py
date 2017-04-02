@@ -17,7 +17,7 @@ class Bukkake(models.Model):
   likes = models.IntegerField(default=0)
 
   def get_absolute_url(self):
-      return self.name
+      return self.id
 
   def __str__(self):
     return self.name
