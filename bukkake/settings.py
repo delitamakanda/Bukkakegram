@@ -15,7 +15,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-from bukkake.settings_local import *
+#from bukkake.settings_local import *
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
