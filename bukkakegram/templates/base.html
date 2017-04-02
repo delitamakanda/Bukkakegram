@@ -57,8 +57,14 @@
 </main>
     <footer>
       <div class="container">
-        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'flatpage' url='about/' %}">About</a>
+        <a href="{% url 'flatpage' url='credits/' %}">Credits</a>
       </div>
+      <div class="container text-center">
+          <small>Copyright (c) 2017 Copyright bukkakegram All Rights Reserved.</small>
+      </div>
+      <br>
+      <br>
     </footer>
     <script type="text/javascript" src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'scripts/bootstrap.min.js' %}"></script>

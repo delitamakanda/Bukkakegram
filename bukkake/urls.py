@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.flatpages import views
 
 admin.autodiscover()
 
 urlpatterns = [
     url(r'^', include('bukkakegram.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^pages/(?P<url>.*/)$', views.flatpage, name='flatpage'),
 ]

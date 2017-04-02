@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
 {% block content %}
+<p><a href="#add-bukkake">Add a bukkake</a></p>
 <div class="row bukkake">
 
   {% for bukkake in bukkakes %}
@@ -32,7 +33,7 @@
   {% endfor %}
 </div>
 <hr/>
-<div class="col-md-12">
+<div id="add-bukkake" class="col-md-12">
 {% if user.is_authenticated %}
 <h4>Add Bukkake Prank</h4>
 <form enctype="multipart/form-data" action="post_url/" method="POST">
