@@ -122,7 +122,6 @@ def like_bukkake(request):
             likes = bukkake.likes + 1
             bukkake.likes = likes
             bukkake.save()
-            messages.info(request, 'one more likes thanks !')
     return HttpResponseRedirect(likes)
 
 def save_profile(backend, *args, **kwargs):
