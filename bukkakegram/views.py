@@ -66,6 +66,7 @@ def post_bukkake(request):
         bukkake = form.save(commit = False)
         bukkake.user=request.user
         bukkake.save()
+    messages.success(request, 'Your bukkake is live!')
     return HttpResponseRedirect('/')
 
 def login_view(request):
@@ -77,14 +78,14 @@ def login_view(request):
             user = authenticate(username = u, password = p)
             if user is not None:
                 if user.is_active:
-                    print("User is valid, active and authenticated")
+                    messages.info(request,'User is valid, active and authenticated')
                     login(request, user)
                     return HttpResponseRedirect('/')
                 else:
-                    print("The password is valid, but the account has been disabled!")
+                    messages.info(request,'The password is valid, but the account has been disabled!')
                     #return render(request, 'register.html', {'form': form})
             else:
-                print("The username and password were incorrect.")
+                messages.error(request,'The username and password were incorrect.')
                 #return render(request, 'login.html', {'form': form})
     else:
         form = LoginForm()
@@ -96,6 +97,7 @@ def register_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Welcome ! Please log in with id and password.')
             return HttpResponseRedirect('/login')
     #args = {}
     #args.update(csrf(request))
@@ -107,6 +109,7 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
+    messages.info(request, 'See you soon !')
     return HttpResponseRedirect('/')
 
 def like_bukkake(request):
@@ -119,7 +122,8 @@ def like_bukkake(request):
             likes = bukkake.likes + 1
             bukkake.likes = likes
             bukkake.save()
-        return HttpResponseRedirect(likes)
+    messages.info(request, 'one more likes thanks !')
+    return HttpResponseRedirect(likes)
 
 def save_profile(backend, *args, **kwargs):
     if backend.name == 'google-oauth2':
