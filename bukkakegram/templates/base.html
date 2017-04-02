@@ -31,9 +31,10 @@
           </a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <form class="navbar-form navbar-left">
+          <form class="navbar-form navbar-left" id="searchform" action="{% url 'blog_search_list_view' %}" method="get" accept-charset="utf-8">
             <div class="form-group">
-              <input type="text" class="form-control col-md-8" placeholder="Search">
+              <input type="text" class="form-control col-md-8" placeholder="Search" name="q" id="searchbox">
+              <button class="btn"><i class="glyphicon glyphicon-search"></i></button>
             </div>
           </form>
           <ul class="nav navbar-nav navbar-right">
