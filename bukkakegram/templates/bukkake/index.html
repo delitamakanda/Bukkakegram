@@ -2,8 +2,21 @@
 {% load cloudinary %}
 {% block content %}
 <div class="row bukkake">
+
+<div class="col-md-3 col-sm-3 col-xs-12">
+{% if user.is_authenticated %}
+<h4>Add Bukkake Prank</h4>
+<form enctype="multipart/form-data" action="post_url/" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Submit" class="btn btn-raised btn-success" />
+</form>
+<br/>
+{% endif %}
+</div>
+
   {% for bukkake in bukkakes %}
-  <div class="col-md-4 col-xs-12 col-sm-4">
+  <div class="col-md-3 col-xs-12 col-sm-3">
     <a href="/{{bukkake.id}}/">
   <div class="product-title">
       <h4>
@@ -15,7 +28,7 @@
   </div>
   <div class="product-image">
       <!--img src="{{bukkake.image.url}}" width="200"-->
-      {% cloudinary bukkake.image width=200 height=200 crop="fill" %}
+      {% cloudinary bukkake.image width=100 height=100 crop="fill" %}
   </div>
 
       <button id="likes" data-id="{{bukkake.id}}" class="btn btn-raised btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
@@ -31,13 +44,4 @@
   {% endfor %}
 </div>
 <hr/>
-{% if user.is_authenticated %}
-<h4>Add Bukkake Prank</h4>
-<form enctype="multipart/form-data" action="post_url/" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit" class="btn btn-raised btn-success" />
-</form>
-<br/>
-{% endif %}
 {% endblock %}

@@ -5,7 +5,7 @@
 {% block content %}
     <h2>{{bukkake.name}}</h2>
     <!--img src="{{bukkake.image.url}}" height="200"-->
-    {% cloudinary bukkake.image %}
+    {% cloudinary bukkake.image width=300 %}
     <div class="panel-body">
     <p>{{bukkake.material}}</p>
       {% if bukkake.value > O %}
