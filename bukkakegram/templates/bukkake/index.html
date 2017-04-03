@@ -37,7 +37,8 @@
   {% endfor %}
     
 {% if bukkakes.has_other_pages %}
-    <ul class="pagination text-center">
+    <div class="clearfix">
+    <ul class="pagination">
             {% if bukkakes.has_previous %}
                 <li>
                 <a href="?page={{ bukkakes.previous_page_number }}">&laquo;</a></li>
@@ -64,6 +65,7 @@
                 <li class="disabled"><a href="#">&raquo;</a></li>
             {% endif %}
     </ul>
+    </div>
 {% endif %}
     
 </div>
