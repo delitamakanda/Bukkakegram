@@ -17,7 +17,7 @@ class BukkakeForm(ModelForm):
     class Meta:
         model = Bukkake
         #fields = '__all__'
-        exclude = ('likes','user',)
+        exclude = ('likes','user','created_date',)
         #fields = ['name', 'value', 'material', 'location', 'image',]
     #name = forms.CharField(label='Name', max_length=100)
     #value = forms.DecimalField(label='Value', max_digits=10, decimal_places=2)
