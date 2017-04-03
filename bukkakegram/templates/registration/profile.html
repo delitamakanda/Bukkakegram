@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2> {{ username }} </h2>
+
+{% if bukkake.user == user %}
 <p><a class="" href="{% url 'settings' %}">Settings</a></p>
+{% endif %}
+
 <div class="row bukkake">
   {% for bukkake in bukkakes %}
   <div class="col-md-4 col-xs-12 col-sm-4">
