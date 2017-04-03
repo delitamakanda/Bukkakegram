@@ -45,7 +45,7 @@ def index(request):
     bukkakes_list = Bukkake.objects.all().order_by('-id')
     page = request.GET.get('page', 1)
     
-    paginator = Paginator(bukkakes_list, 15)
+    paginator = Paginator(bukkakes_list, 10)
     try:
         bukkakes = paginator.page(page)
     except PageNotAnInteger:
