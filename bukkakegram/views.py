@@ -1,5 +1,6 @@
 import json
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Bukkake, User
@@ -41,7 +42,17 @@ class BukkakeSearchListView(ListView):
 
 # Create your views here.
 def index(request):
-    bukkakes = Bukkake.objects.all().order_by('-id')
+    bukkakes_list = Bukkake.objects.all().order_by('-id')
+    page = request.GET.get('page', 1)
+    
+    paginator = Paginator(bukkakes_list, 15)
+    try:
+        bukkakes = paginator.page(page)
+    except PageNotAnInteger:
+        bukkakes = paginator.page(1)
+    except EmptyPage:
+        bukkakes = paginator.page(paginator.num_pages)
+           
     form = BukkakeForm()
     return render(request,'bukkake/index.html', {'bukkakes': bukkakes, 'form': form})
 
