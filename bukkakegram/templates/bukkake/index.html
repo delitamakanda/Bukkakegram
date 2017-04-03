@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
 {% block content %}
+
+{% if user.is_authenticated %}
 <p><a href="#add-bukkake">Add a bukkake</a></p>
+{% endif %}
+
 <div class="row bukkake">
 
   {% for bukkake in bukkakes %}
