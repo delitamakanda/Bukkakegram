@@ -19,7 +19,10 @@ import operator
 from django.db.models import Q
 
 def blog_search_list_view(request):
-    return render(request, 'search.html')
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        bukkakes = Bukkake.objects.filter(name__icontains=q)
+        return render(request, 'search.html', {'bukkakes': bukkakes, 'query': q})
     #template_name = 'other/search.html'
     #model = Bukkake
     #paginate_by = 10
