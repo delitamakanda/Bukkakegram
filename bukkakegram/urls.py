@@ -2,7 +2,7 @@ from django.conf.urls import url, include
 from django.conf import settings
 #from django.views.generic import TemplateView
 from django.views.static import serve
-from bukkakegram.views import BukkakeSearchListView
+#from bukkakegram.views import BukkakeSearchListView
 from . import views
 from django.contrib.sitemaps.views import sitemap
 from bukkakegram.sitemap import (
@@ -25,7 +25,7 @@ urlpatterns = [
     #url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^settings/password/$', views.password, name='password'),
-    url(r'^search/$', BukkakeSearchListView.as_view(), name='blog_search_list_view'),
+    url(r'^search/$', view.blog_search_list_view, name='blog_search_list_view'),
     url('', include('social_django.urls', namespace='social')),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
