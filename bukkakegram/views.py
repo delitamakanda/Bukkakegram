@@ -22,9 +22,9 @@ def blog_search_list_view(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
         bukkakes = Bukkake.objects.filter(name__icontains=q)
-        return render(request, 'search.html', {'bukkakes': bukkakes, 'query': q})
+        return render(request, 'other/search.html', {'bukkakes': bukkakes, 'query': q})
     else:
-        return render(request, 'search.html', {'error': True})
+        return render(request, 'other/search.html', {'error': True})
     #template_name = 'other/search.html'
     #model = Bukkake
     #paginate_by = 10
