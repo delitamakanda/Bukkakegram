@@ -18,26 +18,27 @@ from social_django.models import UserSocialAuth
 import operator
 from django.db.models import Q
 
-class BukkakeSearchListView(ListView):
-    template_name = 'other/search.html'
-    model = Bukkake
-    paginate_by = 10
+def blog_search_list_view(request):
+    return render(request, 'search.html')
+    #template_name = 'other/search.html'
+    #model = Bukkake
+    #paginate_by = 10
 
-    def get_queryset(self):
-        result = super(BukkakeSearchListView, self).get_queryset()
+    #def get_queryset(self):
+        #result = super(BukkakeSearchListView, self).get_queryset()
 
 
-        query = self.request.GET.get('q')
-        if query:
-            query_list = query.split()
-            result = result.filter(
-                reduce(operator.and_,
-                    (Q(name__icontains=q) for q in query_list)) |
-                reduce(operator.and_,
-                    (Q(material__icontains=q) for q in query_list))
-            )
+        #query = self.request.GET.get('q')
+        #if query:
+            #query_list = query.split()
+            #result = result.filter(
+                #reduce(operator.and_,
+                    #(Q(name__icontains=q) for q in query_list)) |
+                #reduce(operator.and_,
+                    #(Q(material__icontains=q) for q in query_list))
+            #)
 
-        return result
+        #return result
 
 
 # Create your views here.
