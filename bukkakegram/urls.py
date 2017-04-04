@@ -25,7 +25,7 @@ urlpatterns = [
     #url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^settings/password/$', views.password, name='password'),
-    url(r'^search/$', view.blog_search_list_view, name='blog_search_list_view'),
+    url(r'^search/$', views.blog_search_list_view, name='blog_search_list_view'),
     url('', include('social_django.urls', namespace='social')),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
