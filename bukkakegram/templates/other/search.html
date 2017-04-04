@@ -2,6 +2,17 @@
 {% block content %}
 <h2> Search </h2>
 <div>
-{{query}}
+  <p>You searched for: <strong>{{ query }}</strong>.</p>
+  
+  <hr/>
+  
+  {% if bukkakes %}
+  <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
+  <ul>
+    {% for bukkake in bukkakes %}
+    <li>{{ bukkake.name }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </div>
 {% endblock %}
