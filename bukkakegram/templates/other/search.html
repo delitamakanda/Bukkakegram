@@ -6,6 +6,10 @@
   
   <hr/>
   
+  {% if error %}
+    <p>No search term.</p>
+  {% endif %}
+  
   {% if bukkakes %}
   <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
   <ul>
