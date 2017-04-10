@@ -14,7 +14,7 @@
   <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
   <ul>
     {% for bukkake in bukkakes %}
-    <li>{{ bukkake.name }}</li>
+    <li><a href="/{{bukkake.id}}/">{{ bukkake.name }}</a></li>
     {% endfor %}
   </ul>
   {% endif %}
