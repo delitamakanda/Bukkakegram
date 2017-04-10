@@ -2,6 +2,38 @@
 {% load cloudinary %}
 {% block content %}
 
+{% if bukkakes.has_other_pages %}
+    <div>
+    <ul class="pagination">
+            {% if bukkakes.has_previous %}
+                <li>
+                <a href="?page={{ bukkakes.previous_page_number }}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">&laquo;</a></li>
+            {% endif %}
+
+            {% for i in bukkakes.paginator.page_range %}
+                {% if bukkakes.number == i %}
+                <li class="active">
+                    <!--Page {{ bukkakes.number }} of {{ bukkakes.paginator.num_pages }}-->
+                    <a href="#">{{ i }}</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="?page={{i}}">{{ i }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if bukkakes.has_next %}
+                <li><a href="?page={{ bukkakes.next_page_number }}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><a href="#">&raquo;</a></li>
+            {% endif %}
+    </ul>
+    </div>
+{% endif %}
+
 {% if user.is_authenticated %}
 <p><a href="#add-bukkake">Add a bukkake</a></p>
 {% endif %}
@@ -35,38 +67,6 @@
   </div><div class="row bukkake">
   {% endif %}
   {% endfor %}
-    
-{% if bukkakes.has_other_pages %}
-    <div class="clearfix">
-    <ul class="pagination">
-            {% if bukkakes.has_previous %}
-                <li>
-                <a href="?page={{ bukkakes.previous_page_number }}">&laquo;</a></li>
-            {% else %}
-                <li class="disabled"><a href="#">&laquo;</a></li>
-            {% endif %}
-
-            {% for i in bukkakes.paginator.page_range %}
-                {% if bukkakes.number == i %}
-                <li class="active">
-                    <!--Page {{ bukkakes.number }} of {{ bukkakes.paginator.num_pages }}-->
-                    <a href="#">{{ i }}</a>
-                </li>
-                {% else %}
-                <li>
-                    <a href="?page={{i}}">{{ i }}</a>
-                </li>
-                {% endif %}
-            {% endfor %}
-
-            {% if bukkakes.has_next %}
-                <li><a href="?page={{ bukkakes.next_page_number }}">&raquo;</a></li>
-            {% else %}
-                <li class="disabled"><a href="#">&raquo;</a></li>
-            {% endif %}
-    </ul>
-    </div>
-{% endif %}
     
 </div>
 <hr/>
