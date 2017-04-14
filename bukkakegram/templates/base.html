@@ -50,6 +50,22 @@
       </div>
     </nav>
     <main class="container" role="main">
+      <script>
+        var DjangoRecaptchaOptions = {{options}};
+        if (typeof RecaptchaOptions !== 'object') {
+          RecaptchaOptions = DjangoRecaptchaOptions;
+        } else {
+          for (key in DjangoRecaptchaOptions) {
+            RecaptchaOptions[key] = DjangoRecaptchaOptions[key];
+          }
+        }
+        var recaptchaCallback = function(resp) {
+          document.getElementById("recaptcha-submit").disabled = false;
+        };
+        var recaptchaExpiredCallback = function(resp) {
+          document.getElementById("recaptcha-submit").disabled = true;
+        };
+      </script>
 
         {% if messages %}
             <div>
