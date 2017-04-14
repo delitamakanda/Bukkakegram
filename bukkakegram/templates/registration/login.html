@@ -8,6 +8,22 @@
 <form action="." method="POST">
   {% csrf_token %}
   {{ form.as_p }}
+    <script>
+        var DjangoRecaptchaOptions = {{options}};
+        if (typeof RecaptchaOptions !== 'object') {
+          RecaptchaOptions = DjangoRecaptchaOptions;
+        } else {
+          for (key in DjangoRecaptchaOptions) {
+            RecaptchaOptions[key] = DjangoRecaptchaOptions[key];
+          }
+        }
+        var recaptchaCallback = function(resp) {
+          document.getElementById("recaptcha-submit").disabled = false;
+        };
+        var recaptchaExpiredCallback = function(resp) {
+          document.getElementById("recaptcha-submit").disabled = true;
+        };
+    </script>
   <input type="submit" id="recaptcha-submit" disabled class="btn btn-raised btn-success" value="Submit" />
   <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy"></div>
 </form>
