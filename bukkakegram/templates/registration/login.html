@@ -2,13 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
-<h2>Login</h2>
-<div class="row">
-    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-<form action="." method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-    <script>
+<script>
         var DjangoRecaptchaOptions = {{options}};
         if (typeof RecaptchaOptions !== 'object') {
           RecaptchaOptions = DjangoRecaptchaOptions;
@@ -23,10 +17,17 @@
         var recaptchaExpiredCallback = function(resp) {
           document.getElementById("recaptcha-submit").disabled = true;
         };
-    </script>
+</script>
+
+<h2>Login</h2>
+<div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+<form action="." method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
   <input type="submit" id="recaptcha-submit" disabled class="btn btn-raised btn-success" value="Submit" />
-  <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy"></div>
 </form>
+  <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy"></div>
 </div>
 <div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
 
