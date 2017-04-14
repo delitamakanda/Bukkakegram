@@ -3,6 +3,7 @@ from django.conf import settings
 from django.forms import ModelForm
 from .models import Bukkake, User
 from django.contrib.auth.forms import UserCreationForm
+from captcha.fields import ReCaptchaField
 from cloudinary.forms import CloudinaryJsFileField, CloudinaryUnsignedJsFileField
 from cloudinary.compat import to_bytes
 import cloudinary, hashlib
@@ -94,3 +95,6 @@ class RegisterForm(UserCreationForm):
     #Bukkake('Le Bonheur', 0.00, 'Velvet', "Paris")
     #Bukkake('Musique rock', 0.99, 'Fire', "USA")
 #]
+
+class ReCAPTCHAForm(forms.Form):
+    captcha = ReCaptchaField()
