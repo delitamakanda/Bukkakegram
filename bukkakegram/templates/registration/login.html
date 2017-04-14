@@ -3,7 +3,7 @@
 {% block content %}
 
 <script>
-        var DjangoRecaptchaOptions = {{options}};
+        var DjangoRecaptchaOptions = { "lang": "en" };
         if (typeof RecaptchaOptions !== 'object') {
           RecaptchaOptions = DjangoRecaptchaOptions;
         } else {
