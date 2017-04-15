@@ -1,3 +1,5 @@
+import os
+
 from django import forms
 from django.conf import settings
 from django.forms import ModelForm
@@ -97,4 +99,7 @@ class RegisterForm(UserCreationForm):
 #]
 
 class ReCAPTCHAForm(forms.Form):
-    captcha = ReCaptchaField()
+    captcha = ReCaptchaField(
+        public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY'),
+        private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY'),
+    )

@@ -15,7 +15,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-#from bukkake.settings_local import *
+from bukkake.settings_local import *
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'social_django',
     'social_core',
     'cloudinary',
+    'captcha',
     'bukkakegram',
 
 ]
@@ -158,6 +159,7 @@ SOCIAL_AUTH_TWITTER_SECRET = os.environ.get('SOCIAL_AUTH_TWITTER_SECRET')
 SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = os.environ.get('SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE')
+
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 NOCAPTCHA = True
