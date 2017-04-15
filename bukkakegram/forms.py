@@ -1,4 +1,3 @@
-import os
 import json
 import urllib
 import urllib2
@@ -42,6 +41,7 @@ class PhotoUnsignedDirectForm(BukkakeForm):
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=64, widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    captcha = ReCaptchaField()
 
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
@@ -130,8 +130,8 @@ class RegisterForm(UserCreationForm):
     #Bukkake('Musique rock', 0.99, 'Fire', "USA")
 #]
 
-class ReCAPTCHAForm(forms.Form):
-    captcha = ReCaptchaField(
-        public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY'),
-        private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY'),
-    )
+#class ReCAPTCHAForm(forms.Form):
+    #captcha = ReCaptchaField(
+        #public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY'),
+        #private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY'),
+    #)
