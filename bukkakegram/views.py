@@ -100,10 +100,10 @@ def login_view(request):
                     return HttpResponseRedirect('/')
                 else:
                     messages.info(request,'The password is valid, but the account has been disabled!')
-                    return render(request, 'register.html', {'form': form})
+                    return render(request, 'registration/register.html', {'form': form})
             else:
                 messages.error(request,'The username and password were incorrect.')
-                return render(request, 'login.html', {'form': form})
+                return render(request, 'registration/login.html', {'form': form})
     else:
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
