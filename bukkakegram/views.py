@@ -50,7 +50,7 @@ def blog_search_list_view(request):
 def index(request):
     bukkakes_list = Bukkake.objects.all().order_by('-id')
     page = request.GET.get('page', 1)
-    
+
     paginator = Paginator(bukkakes_list, 10)
     try:
         bukkakes = paginator.page(page)
@@ -58,7 +58,7 @@ def index(request):
         bukkakes = paginator.page(1)
     except EmptyPage:
         bukkakes = paginator.page(paginator.num_pages)
-           
+
     form = BukkakeForm()
     return render(request,'bukkake/index.html', {'bukkakes': bukkakes, 'form': form})
 
@@ -100,10 +100,10 @@ def login_view(request):
                     return HttpResponseRedirect('/')
                 else:
                     messages.info(request,'The password is valid, but the account has been disabled!')
-                    #return render(request, 'register.html', {'form': form})
+                    return render(request, 'register.html', {'form': form})
             else:
                 messages.error(request,'The username and password were incorrect.')
-                #return render(request, 'login.html', {'form': form})
+                return render(request, 'login.html', {'form': form})
     else:
         form = LoginForm()
         return render(request, 'registration/login.html', {'form': form})
