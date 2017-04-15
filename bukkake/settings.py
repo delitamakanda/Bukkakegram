@@ -163,6 +163,7 @@ SOCIAL_AUTH_FACEBOOK_APP_NAMESPACE = os.environ.get('SOCIAL_AUTH_FACEBOOK_APP_NA
 RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 NOCAPTCHA = True
+CAPTCHA_AJAX = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
