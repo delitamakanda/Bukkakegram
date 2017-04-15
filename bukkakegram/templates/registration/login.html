@@ -25,7 +25,7 @@
 <form action="." method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-  <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy"></div>
+  <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy" data-callback="recaptchaCallback" data-expired-callback="recaptchaExpiredCallback"></div>
   <input type="submit" id="recaptcha-submit" class="btn btn-raised btn-success" value="Submit" disabled/>
   </form>
 </div>
