@@ -1,9 +1,9 @@
-import json
-import urllib
-import urllib2
+#import json
+#import urllib
+#import urllib2
 from django import forms
 from django.conf import settings
-from django.utils.encoding import smart_unicode
+#from django.utils.encoding import smart_unicode
 from django.forms import ModelForm
 from .models import Bukkake, User
 from django.contrib.auth.forms import UserCreationForm
@@ -43,30 +43,30 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     captcha = ReCaptchaField()
 
-    def __init__(self, *args, **kwargs):
-        self.request = kwargs.pop('request', None)
-        super(LoginForm, self).__init__(*args, **kwargs)
+    #def __init__(self, *args, **kwargs):
+        #self.request = kwargs.pop('request', None)
+        #super(LoginForm, self).__init__(*args, **kwargs)
 
-    def clean(self):
-        super(LoginForm, self).clean()
+    #def clean(self):
+        #super(LoginForm, self).clean()
 
 
-        url = "https://www.google.com/recaptcha/api/siteverify"
-        values = {
-            'secret': settings.RECAPTCHA_PRIVATE_KEY,
-            'response': self.request.POST.get(u'g-recaptcha-response', None),
-            'remoteip': self.request.META.get("REMOTE_ADDR", None),
-        }
+        #url = "https://www.google.com/recaptcha/api/siteverify"
+        #values = {
+            #'secret': settings.RECAPTCHA_PRIVATE_KEY,
+            #'response': self.request.POST.get(u'g-recaptcha-response', None),
+            #'remoteip': self.request.META.get("REMOTE_ADDR", None),
+        #}
 
-        data = urllib.urlencode(values)
-        req = urllib2.Request(url, data)
-        response = urllib2.urlopen(req)
-        result = json.loads(response.read())
+        #data = urllib.urlencode(values)
+        #req = urllib2.Request(url, data)
+        #response = urllib2.urlopen(req)
+        #result = json.loads(response.read())
 
-        if not result["success"]:
-            raise forms.ValidationError(u'Only humans are allowed to submit this form.')
+        #if not result["success"]:
+            #raise forms.ValidationError(u'Only humans are allowed to submit this form.')
 
-        return self.cleaned_data
+        #return self.cleaned_data
 
 
 
