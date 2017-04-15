@@ -95,11 +95,11 @@ def login_view(request):
             user = authenticate(username = u, password = p)
             if user is not None:
                 if user.is_active:
-                    messages.info(request,'User is valid, active and authenticated')
+                    messages.success(request,'User is valid, active and authenticated')
                     login(request, user)
                     return HttpResponseRedirect('/')
                 else:
-                    messages.info(request,'The password is valid, but the account has been disabled!')
+                    messages.error(request,'The password is valid, but the account has been disabled!')
                     return render(request, 'registration/register.html', {'form': form})
             else:
                 messages.error(request,'The username and password were incorrect.')
