@@ -15,7 +15,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-#from bukkake.settings_local import *
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
@@ -164,6 +163,14 @@ RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY')
 NOCAPTCHA = True
 CAPTCHA_AJAX = True
+
+# cloudinary config
+cloudinary.config(
+    cloud_name = os.environ.get('cloud_name'), # replace by your own cloud name
+    api_key = os.environ.get('api_key'), # your api key
+    api_secret = os.environ.get('api_secret'), # your api secret
+)
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
