@@ -5,9 +5,8 @@ from .models import Bukkake
 class ModelTestCase(TestCase):
   
   def setUp(self):
-    pass
-    #self.name = "test"
-    #self.bukkake = Bukkake(name=self.name)
+    self.name = "test"
+    self.bukkake = Bukkake(name=self.name)
     
   def test_model_can_create_a_bukkake(self):
     pass
