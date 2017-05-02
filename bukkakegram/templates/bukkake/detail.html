@@ -4,6 +4,9 @@
 
 {% block content %}
     <h2>{{bukkake.name}}</h2>
+    <a href="/user/{{bukkake.user.username}}/">
+        <p>Posted by: {{bukkake.user.username}} on {{ bukkake.created_date|date:'d-m-Y' }}</p>
+    </a>
     <!--img src="{{bukkake.image.url}}" height="200"-->
     {% cloudinary bukkake.image width=600 %}
     <div class="panel-body">
