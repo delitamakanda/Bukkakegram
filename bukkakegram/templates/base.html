@@ -1,4 +1,5 @@
 {% load cloudinary %}
+{% load cookielaw_tags %}
 {% load staticfiles %}
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,7 @@
     <title>BukkakeGram</title>
   </head>
   <body>
+    {% cookielaw_banner %}
     <nav class="navbar navbar-warning">
       <div class="container">
         <div class="navbar-header">
