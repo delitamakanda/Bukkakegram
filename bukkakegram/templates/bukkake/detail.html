@@ -3,11 +3,14 @@
 {% load cloudinary %}
 
 {% block content %}
+<div class="row">
+    <div class="col-md-6 col-xs-12">
     <h2>{{bukkake.name}}</h2>
     <p>Posted by: <a href="/user/{{bukkake.user.username}}/">{{bukkake.user.username}}</a> on {{ bukkake.created_date|date:'d-m-Y' }}</p>
     <!--img src="{{bukkake.image.url}}" height="200"-->
     {% cloudinary bukkake.image width=600 %}
-    <div class="panel-body">
+    </div>
+    <div class="col-md-6 col-xs-12 panel-body">
     <p>{{bukkake.material}}</p>
       {% if bukkake.value > O %}
         <p>{{bukkake.value}} €</p>
@@ -22,5 +25,6 @@
         </button>
         <div class="sharethis-inline-share-buttons"></div>
     </div>
+</div>
 <hr/>
 {% endblock %}
