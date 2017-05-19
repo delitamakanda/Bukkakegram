@@ -8,7 +8,15 @@
 <form action="." method="POST">
   {% csrf_token %}
   {{ form.as_p }}
-  <input type="submit" class="btn btn-raised btn-success" value="Register" />
+    
+<script type="text/javascript">
+    var recaptchaCallback = function(resp) {
+      var form = document.getElementById("recaptcha-form");
+      form.getElementById('registerBukkake').disabled = true;
+      form.submit();
+    };
+</script>
+  <input type="submit" id="registerBukkake" class="btn btn-raised btn-success g-recaptcha" data-sitekey="{{ public_key }}" data-callback="recaptchaCallback" value="Register" />
 </form>
     </div>
     <div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
