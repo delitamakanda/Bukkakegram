@@ -2,13 +2,6 @@
 {% load staticfiles %}
 {% block content %}
 
-<h2>Signup for showing your bukkake</h2>
-<div class="row">
-    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-<form action="." method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-    
 <script type="text/javascript">
     var recaptchaCallback = function(resp) {
       var form = document.getElementById("recaptcha-form");
@@ -16,6 +9,14 @@
       form.submit();
     };
 </script>
+
+<h2>Signup for showing your bukkake</h2>
+<div class="row">
+    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+<form action="." method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  
   <button type="submit"
           class="btn btn-raised btn-success g-recaptcha" 
           data-sitekey="6LezISIUAAAAACn_I-mT6sseCHJGP6kun5uZCAlV" 
