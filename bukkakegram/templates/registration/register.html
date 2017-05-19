@@ -12,11 +12,11 @@
 <script type="text/javascript">
     var recaptchaCallback = function(resp) {
       var form = document.getElementById("recaptcha-form");
-      form.getElementById('registerBukkake').disabled = true;
+      form.querySelectorAll('button').disabled = true;
       form.submit();
     };
 </script>
-  <input type="submit" id="registerBukkake" class="btn btn-raised btn-success g-recaptcha" data-sitekey="6LezISIUAAAAACn_I-mT6sseCHJGP6kun5uZCAlV" data-callback="recaptchaCallback" value="Register" />
+  <button type="submit" id="registerBukkake" class="btn btn-raised btn-success g-recaptcha" data-sitekey="6LezISIUAAAAACn_I-mT6sseCHJGP6kun5uZCAlV" data-callback="recaptchaCallback">Register</button>
 </form>
     </div>
     <div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
