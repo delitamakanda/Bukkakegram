@@ -21,8 +21,4 @@ class Bukkake(models.Model):
 
   def __str__(self):
     return self.name
-    #try:
-        #public_id = self.image.public_id
-    #except AttributeError:
-        #public_id = ''
-    #return "Photo <%s:%s>" % (self.name, public_id)
+
