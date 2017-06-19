@@ -3,7 +3,7 @@ $(function() {
         e.preventDefault();
         var element = $(this);
 
-        $.ajax({
+        $.get({
             url: '/like_bukkake/',
             type: 'GET',
             data: { bukkake_id : element.attr("data-id") },
