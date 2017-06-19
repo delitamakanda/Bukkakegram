@@ -113,26 +113,5 @@ class RegisterForm(UserCreationForm):
             user.save()
         return user
 
-# Create your views here.
-#def index(request):
-#    bukkakes = Bukkake.objects.all()
-#    return render(request,'index.html', {'bukkakes':bukkakes})
 
-#class Bukkake:
-    #def __init__(self, name, value, material, location):
-        #self.name = name
-        #self.value = value
-        #self.material = material
-        #self.location = location
 
-#bukkakes = [
-    #Bukkake('Pute de Luxe', 120.00, 'Cashmere', "Budapest")
-    #Bukkake('Le Bonheur', 0.00, 'Velvet', "Paris")
-    #Bukkake('Musique rock', 0.99, 'Fire', "USA")
-#]
-
-#class ReCAPTCHAForm(forms.Form):
-    #captcha = ReCaptchaField(
-        #public_key = os.environ.get('RECAPTCHA_PUBLIC_KEY'),
-        #private_key = os.environ.get('RECAPTCHA_PRIVATE_KEY'),
-    #)
