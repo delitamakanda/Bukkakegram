@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^settings/password/$', views.password, name='password'),
     url(r'^search/$', views.blog_search_list_view, name='blog_search_list_view'),
+    url(r'^add/$', views.add_bukkake, name='add_bukkake'),
     url('', include('social_django.urls', namespace='social')),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

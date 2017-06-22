@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="album text-muted">
+  <div class="container">
+
 <h2> Search </h2>
 <div>
   <p>You searched for: <strong>{{ query }}</strong>.</p>
-  
+
   <hr/>
-  
+
   {% if error %}
     <p>No search term.</p>
   {% endif %}
-  
+
   {% if bukkakes %}
   <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
   <ul>
@@ -19,4 +23,7 @@
   </ul>
   {% endif %}
 </div>
+</div>
+</div>
+
 {% endblock %}

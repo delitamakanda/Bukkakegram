@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<div class="album text-muted">
+  <div class="container">
+
 <h2> {{ username }} </h2>
 
 {% if request.user.is_authenticated %}
@@ -24,5 +28,8 @@
   </div><div class="row bukkake">
   {% endif %}
   {% endfor %}
+</div>
+
+</div>
 </div>
 {% endblock %}

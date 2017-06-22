@@ -40,8 +40,7 @@ def index(request):
     except EmptyPage:
         bukkakes = paginator.page(paginator.num_pages)
 
-    form = BukkakeForm()
-    return render(request,'bukkake/index.html', {'bukkakes': bukkakes, 'form': form})
+    return render(request,'bukkake/index.html', {'bukkakes': bukkakes})
 
 
 def detail(request, bukkake_id):
@@ -183,3 +182,10 @@ def password(request):
         #existing_person = Bukkake.objects.get(user=kwargs.filter('detail').get('email'))
         #if not existing_person:
             #return HttpResponse("dont have an access")
+
+
+@login_required
+def add_bukkake(request):
+    form = BukkakeForm()
+    
+    return render(request, 'bukkake/add.html', {'form': form})

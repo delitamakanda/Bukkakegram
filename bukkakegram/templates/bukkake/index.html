@@ -2,6 +2,24 @@
 {% load cloudinary %}
 {% block content %}
 
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Bukkakegram</h1>
+    <p class="lead text-muted">Share your selfies with our community and make the web great again !</p>
+    <p>
+      <a href="{% url 'register' %}" class="btn btn-primary">Sign up now !</a>
+      <a href="{% url 'flatpage' url='about/' %}" class="btn btn-secondary">Read more</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'add_bukkake' %}" class="btn btn-success">Add a bukkake</a>
+      {% endif %}
+    </p>
+  </div>
+</section>
+
+<div class="album text-muted">
+  <div class="container">
+
+
 {% if bukkakes.has_other_pages %}
     <div class="text-center">
     <ul class="pagination">
@@ -34,29 +52,21 @@
     </div>
 {% endif %}
 
-{% if user.is_authenticated %}
-<p><a href="#add-bukkake">Add a bukkake</a></p>
-{% endif %}
 
 <div class="row bukkake">
 
   {% for bukkake in bukkakes %}
-  <div class="col-md-4 col-xs-12 col-sm-4">
+  <div class="card">
     <a href="/{{bukkake.id}}/">
-  <div class="product-title">
-      <h4>
-        {{bukkake.name}}
-      </h4>
-      <a href="/user/{{bukkake.user.username}}/">
-        <p>by: {{bukkake.user.username}}</p>
-      </a>
-  </div>
-  <div class="product-image">
-      <!--img src="{{bukkake.image.url}}" width="200"-->
-      {% cloudinary bukkake.image width=200 crop="fill" %}
-  </div>
+        {% cloudinary bukkake.image width=200 crop="fill" %}
 
-      <button id="likes" data-id="{{bukkake.id}}" class="btn btn-raised btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+      {% if bukkake.description %}
+      <p class="card-text">
+          {{bukkake.description}}
+      </p>
+      {% endif %}
+
+      <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
           {% if bukkake.likes > 0 %}
           {{ bukkake.likes }}
           {% endif %}
@@ -67,18 +77,10 @@
   </div><div class="row bukkake">
   {% endif %}
   {% endfor %}
-    
+
 </div>
-<hr/>
-<div id="add-bukkake" class="col-md-12">
-{% if user.is_authenticated %}
-<h4>Add Bukkake Prank</h4>
-<form enctype="multipart/form-data" action="post_url/" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Submit" class="btn btn-raised btn-success" />
-</form>
-<br/>
-{% endif %}
+
 </div>
+</div>
+
 {% endblock %}

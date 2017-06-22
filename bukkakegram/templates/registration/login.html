@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+<div class="album text-muted">
+  <div class="container">
 
 <script>
         var DjangoRecaptchaOptions = { "lang": "en" };
@@ -32,8 +34,11 @@
 <div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
 
 <!--a class="btn btn-raised btn-success" href="{% url 'social:begin' 'google-oauth2' %}">Google+</a><br-->
-<a class="btn btn-raised btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
-<a class="btn btn-raised btn-default" href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-<a class="btn btn-raised btn-info" href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a>
+<a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
+<a class="btn btn-secondary" href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
+<a class="btn btn-info" href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a>
+</div>
+
+</div>
 </div>
 {% endblock %}

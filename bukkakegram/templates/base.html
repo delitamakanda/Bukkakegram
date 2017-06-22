@@ -42,24 +42,12 @@
     </div>
     <div class="navbar navbar-inverse bg-inverse">
       <div class="container d-flex justify-content-between">
-        <a href="#" class="navbar-brand">Bukkakegram</a>
+        <a href="{% url 'index' %}" class="navbar-brand">Bukkakegram</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </div>
-
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 class="jumbotron-heading">Bukkakegram</h1>
-        <p class="lead text-muted">Share your selfies with our community and</p>
-        <p>
-          <a href="#" class="btn btn-primary">Main call to action</a>
-          <a href="#" class="btn btn-secondary">Secondary action</a>
-        </p>
-      </div>
-    </section>
 <!--
     <nav class="navbar navbar-warning">
       <div class="container">
@@ -91,8 +79,8 @@
           </ul>
           </div>
       </div>
-    </nav>
-    <main class="container" role="main">
+  </nav> -->
+    <div>
 
         {% if messages %}
             <div>
@@ -104,30 +92,33 @@
             </div>
         {% endif %}
 
+
+
     {% block content %}
     {% endblock %}
 
-</main>
-    <br>
-    <br>
-    <br>
-    <footer>
+    </div>
+
+
+  <footer class="text-muted">
       <div class="container">
-        <a href="{% url 'flatpage' url='about/' %}">About</a>
-        <a href="{% url 'flatpage' url='credits/' %}">Credits</a>
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Copyright (c) 2017 Copyright bukkakegram All Rights Reserved.</p>
+        <p>
+            <a href="{% url 'flatpage' url='about/' %}">About</a>
+            <a href="{% url 'flatpage' url='credits/' %}">Credits</a>
+        </p>
       </div>
-      <div class="container text-center">
-          <small>Copyright (c) 2017 Copyright bukkakegram All Rights Reserved.</small>
-      </div>
-      <br>
-      <br>
-  </footer>-->
+    </footer>
 
     <script src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'scripts/jquery-ui.min.js' %}"></script>
     <script src="{% static 'scripts/tether/tether.min.js' %}"></script>
     <script src="{% static 'scripts/bootstrap/bootstrap.min.js' %}"></script>
     <script src="{% static 'scripts/main.js' %}"></script>
+    <script src="{% static 'scripts/ie10-viewport-bug-workaround.js' %}"></script>
     {% cloudinary_includes %}
 
     <script>
