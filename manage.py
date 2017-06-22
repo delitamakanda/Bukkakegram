@@ -40,6 +40,6 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
-    if settings.DEBUG == True:
-        read_env()
+    #if settings.DEBUG:
+    #read_env()
     execute_from_command_line(sys.argv)
