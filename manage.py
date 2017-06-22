@@ -2,7 +2,6 @@
 import os
 import sys
 import re
-from django.conf import settings
 
 def read_env():
     try:
@@ -40,6 +39,5 @@ if __name__ == "__main__":
                 "forget to activate a virtual environment?"
             )
         raise
-    #if settings.DEBUG:
-    #read_env()
+    read_env()
     execute_from_command_line(sys.argv)

@@ -166,11 +166,11 @@ NOCAPTCHA = True
 CAPTCHA_AJAX = True
 
 # cloudinary config
-cloudinary.config(
-    cloud_name = os.environ.get('cloud_name'), # replace by your own cloud name
-    api_key = os.environ.get('api_key'), # your api key
-    api_secret = os.environ.get('api_secret'), # your api secret
-)
+#cloudinary.config(
+    #cloud_name = os.environ.get('cloud_name'), # replace by your own cloud name
+    #api_key = os.environ.get('api_key'), # your api key
+    #api_secret = os.environ.get('api_secret'), # your api secret
+#)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
