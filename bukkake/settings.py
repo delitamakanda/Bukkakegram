@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'social_core',
     'cloudinary',
     'captcha',
-    'cookielaw',
+    #'cookielaw',
     'bukkakegram',
 
 ]
