@@ -18,6 +18,12 @@
       {% else %}
         <p>hello</p>
     {% endif %}
+
+    {% if bukkake.description %}
+    <p>
+        {{bukkake.description}}
+    </p>
+    {% endif %
     <p>{{bukkake.location}}</p>
         <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
             {% if bukkake.likes > 0 %}

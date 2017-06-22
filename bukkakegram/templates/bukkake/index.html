@@ -20,7 +20,7 @@
   <div class="container">
 
 
-<div class="row bukkake infinite-container">
+<div class="row bukkake">
 
   {% for bukkake in bukkakes %}
   <div class="card infinite-item">
@@ -41,7 +41,7 @@
     </a>
   </div>
   {% if forloop.counter|divisibleby:3 %}
-  </div><div class="row bukkake">
+  </div><div class="row bukkake infinite-container">
   {% endif %}
   {% endfor %}
 
