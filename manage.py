@@ -2,6 +2,7 @@
 import os
 import sys
 import re
+from django.conf import settings
 
 def read_env():
     try:
