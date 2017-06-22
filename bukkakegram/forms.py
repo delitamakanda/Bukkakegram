@@ -1,9 +1,5 @@
-#import json
-#import urllib
-#import urllib2
 from django import forms
 from django.conf import settings
-#from django.utils.encoding import smart_unicode
 from django.forms import ModelForm
 from .models import Bukkake, User
 from django.contrib.auth.forms import UserCreationForm
@@ -18,18 +14,10 @@ class BukkakeForm(ModelForm):
     value = forms.DecimalField(label='Value', max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
     material = forms.CharField(label='Material', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = forms.CharField(label='Location', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    #image = CloudinaryJsFileField()
 
     class Meta:
         model = Bukkake
-        #fields = '__all__'
         exclude = ('likes','user','created_date',)
-        #fields = ['name', 'value', 'material', 'location', 'image',]
-    #name = forms.CharField(label='Name', max_length=100)
-    #value = forms.DecimalField(label='Value', max_digits=10, decimal_places=2)
-    #material = forms.CharField(label='Material', max_length=100)
-    #location = forms.CharField(label='Location', max_length=100)
-    #img_url = forms.CharField(label='Image Url', max_length=255)
 
 class PhotoDirectForm(BukkakeForm):
     image = CloudinaryJsFileField()
@@ -43,34 +31,6 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     captcha = ReCaptchaField()
 
-    #def __init__(self, *args, **kwargs):
-        #self.request = kwargs.pop('request', None)
-        #super(LoginForm, self).__init__(*args, **kwargs)
-
-    #def clean(self):
-        #super(LoginForm, self).clean()
-
-
-        #url = "https://www.google.com/recaptcha/api/siteverify"
-        #values = {
-            #'secret': settings.RECAPTCHA_PRIVATE_KEY,
-            #'response': self.request.POST.get(u'g-recaptcha-response', None),
-            #'remoteip': self.request.META.get("REMOTE_ADDR", None),
-        #}
-
-        #data = urllib.urlencode(values)
-        #req = urllib2.Request(url, data)
-        #response = urllib2.urlopen(req)
-        #result = json.loads(response.read())
-
-        #if not result["success"]:
-            #raise forms.ValidationError(u'Only humans are allowed to submit this form.')
-
-        #return self.cleaned_data
-
-
-
-
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', max_length=64, widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -79,7 +39,7 @@ class RegisterForm(UserCreationForm):
     email = forms.EmailField(label='Email Address', max_length=255, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     first_name = forms.CharField(label='First name', max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
     last_name = forms.CharField(label='Last name', max_length=255, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    
+
     #def verify_password(self):
     #    if 'password1' in self.cleaned_data:
     #        password1 = self.cleaned_data['password1']
@@ -111,6 +71,3 @@ class RegisterForm(UserCreationForm):
         if commit:
             user.save()
         return user
-
-
-

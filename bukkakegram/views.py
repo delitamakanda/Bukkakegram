@@ -25,25 +25,6 @@ def blog_search_list_view(request):
         return render(request, 'other/search.html', {'bukkakes': bukkakes, 'query': q})
     else:
         return render(request, 'other/search.html', {'error': True})
-    #template_name = 'other/search.html'
-    #model = Bukkake
-    #paginate_by = 10
-
-    #def get_queryset(self):
-        #result = super(BukkakeSearchListView, self).get_queryset()
-
-
-        #query = self.request.GET.get('q')
-        #if query:
-            #query_list = query.split()
-            #result = result.filter(
-                #reduce(operator.and_,
-                    #(Q(name__icontains=q) for q in query_list)) |
-                #reduce(operator.and_,
-                    #(Q(material__icontains=q) for q in query_list))
-            #)
-
-        #return result
 
 
 # Create your views here.
@@ -196,22 +177,9 @@ def password(request):
         form = PasswordForm(request.user)
     return render(request, 'registration/password.html', {'form': form})
 
+
 #def verify_email(backend, user, *args, **kwarkgs):
     #if backend.name == 'google-oauth2':
         #existing_person = Bukkake.objects.get(user=kwargs.filter('detail').get('email'))
         #if not existing_person:
             #return HttpResponse("dont have an access")
-
-
-#class Bukkake:
-    #def __init__(self, name, value, material, location):
-        #self.name = name
-        #self.value = value
-        #self.material = material
-        #self.location = location
-
-#bukkakes = [
-    #Bukkake('Pute de Luxe', 120.00, 'Cashmere', "Budapest")
-    #Bukkake('Le Bonheur', 0.00, 'Velvet', "Paris")
-    #Bukkake('Musique rock', 0.99, 'Fire', "USA")
-#]
