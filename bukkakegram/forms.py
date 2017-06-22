@@ -14,6 +14,7 @@ class BukkakeForm(ModelForm):
     value = forms.DecimalField(label='Value', max_digits=10, decimal_places=2, widget=forms.TextInput(attrs={'class': 'form-control'}))
     material = forms.CharField(label='Material', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
     location = forms.CharField(label='Location', max_length=100, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    #description = forms.TextField(label='Description', widget=forms.TextInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = Bukkake

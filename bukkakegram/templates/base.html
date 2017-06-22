@@ -12,16 +12,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="{% static 'cookielaw/js/cookielaw.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap/bootstrap-grid.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap/bootstrap-reboot.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap/bootstrap.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles/tether/tether.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles/tether/tether-theme-basic.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" />
     <title>BukkakeGram</title>
   </head>
   <body>
-    {% cookielaw_banner %}
+      {% cookielaw_banner %}
+      <div class="collapse bg-inverse" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">About</h4>
+            <p class="text-muted">Bukkakegram is my very first project with Django. Code School brought to me the tools for learn this fantastic framework and I keep to work with it. Bukkakegram is a web app made for share with the world some cool photos and I hope you like it. </p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a target="_blank" href="https://twitter.com/delitamakanda?lang=fr" class="text-white">Follow on Twitter</a></li>
+              <li><a target="_blank" href="https://www.facebook.com/donutmessanger/" class="text-white">Like on Facebook</a></li>
+              <li><a href="#" class="text-white">Email me</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">Bukkakegram</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Bukkakegram</h1>
+        <p class="lead text-muted">Share your selfies with our community and</p>
+        <p>
+          <a href="#" class="btn btn-primary">Main call to action</a>
+          <a href="#" class="btn btn-secondary">Secondary action</a>
+        </p>
+      </div>
+    </section>
+<!--
     <nav class="navbar navbar-warning">
       <div class="container">
         <div class="navbar-header">
@@ -82,7 +121,8 @@
       </div>
       <br>
       <br>
-    </footer>
+  </footer>-->
+
     <script src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
     <script src="{% static 'scripts/jquery-ui.min.js' %}"></script>
     <script src="{% static 'scripts/tether/tether.min.js' %}"></script>

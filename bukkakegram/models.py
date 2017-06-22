@@ -11,6 +11,7 @@ class Bukkake(models.Model):
   value = models.DecimalField(max_digits=10,decimal_places=2, blank=True, null=True)
   material = models.CharField(max_length=100, blank=True, null=True)
   location = models.CharField(max_length=100, blank=True, null=True)
+  description = models.TextField()
   created_date = models.DateTimeField(default=timezone.now)
   image = CloudinaryField('image')
   likes = models.IntegerField(default=0)
