@@ -10,7 +10,7 @@
     <p>Posted by: <a href="/user/{{bukkake.user.username}}/">{{bukkake.user.username}}</a> on {{ bukkake.created_date|date:'d-m-Y' }}</p>
 
 
-    {% cloudinary bukkake.image %}
+    {% cloudinary bukkake.image width=600 crop="fill" %}
 
     <p>{{bukkake.material}}</p>
       {% if bukkake.value > O %}

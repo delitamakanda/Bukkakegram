@@ -14,7 +14,7 @@
   {% for bukkake in bukkakes %}
   <div class="card">
     <a href="/{{bukkake.id}}/">
-    <img src="{{bukkake.image.url}}" width="100">
+    {% cloudinary bukkake.image width=356 height=280 crop="fill" %}
     <p class="card-text">{{bukkake.name}}</p>
     </a>
   </div>
