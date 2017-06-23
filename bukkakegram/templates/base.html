@@ -36,6 +36,16 @@
               <li><a target="_blank" href="https://www.facebook.com/donutmessanger/" class="text-white">Like on Facebook</a></li>
               <li><a href="#" class="text-white">Email me</a></li>
             </ul>
+            <h4 class="text-white">Profile</h4>
+            <ul class="list-unstyled">
+            {% if user.is_authenticated %}
+              <li><a class="text-white" href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
+              <li><a class="text-white" href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a class="text-white" href="{% url 'login' %}">Login</a></li>
+              <li><a class="text-white" href="{% url 'register' %}">Register</a></li>
+            {% endif %}
+            </ul>
           </div>
         </div>
       </div>
