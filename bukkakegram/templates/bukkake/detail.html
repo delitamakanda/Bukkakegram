@@ -12,23 +12,25 @@
     {% cloudinary bukkake.image width=600 crop="fill" %}
 
     <p>{{bukkake.material}}</p>
-      {% if bukkake.value > O %}
-        <p>{{bukkake.value}} €</p>
-      {% else %}
-        <p>hello</p>
-    {% endif %}
 
-    {% if bukkake.description %}
-    <p>
-        {{bukkake.description}}
-    </p>
-    {% endif %
-    <p>{{bukkake.location}}</p>
-        <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
-            {% if bukkake.likes > 0 %}
-            {{ bukkake.likes }} likes
-            {% endif %}
-        </button>
+{% if bukkake.value > O %}
+    <p>{{bukkake.value}} €</p>
+{% else %}
+    <p>hello</p>
+{% endif %}
+
+{% if bukkake.description %}
+<p>
+    {{bukkake.description}}
+</p>
+{% endif %}
+
+<p>{{bukkake.location}}</p>
+<button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+    {% if bukkake.likes > 0 %}
+    {{ bukkake.likes }} likes
+    {% endif %}
+</button>
 
 
 </div>
