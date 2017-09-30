@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 from decouple import config
+from unipath import Path
+from dj_database_url import parse as db_url
 
 import os
 import cloudinary
@@ -32,7 +34,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
