@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 from decouple import Config, RepositoryEnv
-DOTENV_FILE = '/Users/delitamakanda/Projets/bukkake/.env'
-config = Config(RepositoryEnv(DOTENV_FILE))
+#DOTENV_FILE = '/Users/delitamakanda/Projets/bukkake/.env'
+#config = Config(RepositoryEnv(DOTENV_FILE))
 
 import os
 import cloudinary
