@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 *,*:after,*:before { box-sizing: border-box; -webkit-transition: 0.3s; transition: 0.3s; }
-body { background-color: #ff5252; font-family: Helvetica, Arial, sans-serif; }
-.panel { max-width: 360px; background: rgba(255, 255, 255, 0.9); border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); margin: auto; text-align: center; color: #000; position: absolute; left: 0; right: 0; top: 0; bottom: 0; height: calc(100% - 100px); overflow: hidden; }
+body { background-color: #ff5252; font: 14px/22px 'Lato', Helvetica, Arial, sans-serif; margin: 0; }
+.panel { max-width: 360px; background: rgba(255, 255, 255, 0.9); border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); margin: auto; text-align: center; color: #000; position: absolute; left: 0; right: 0; top: 0; bottom: 0; height: calc(100% - 150px); overflow: hidden; padding-top: 40px; }
 .formset {padding: 25px; max-width: 320px; margin: auto; }
 .panel h1 { font-size: 60px; margin: 25px 0 15px; display: inline-block; width: 100%; font-weight: 200; color: #ff5252; font-family: "Vibur", cursive; }
 .panel h4 { font-weight: 400; font-size: 16px; text-align: left; padding-left: 15px; padding-bottom: 5px; color: #ff5252; border-bottom: 1px solid #ff5252; }
@@ -14,3 +15,21 @@ input { border-radius: 20px; border: 1px solid #ff5252; height: 35px; position: 
 label { font-weight: 300; color: #ff5252; font-size: 14px; min-height: 17px; text-align: left; z-index: 1; }
 a { text-decoration: none; color: #ff5252; }
 a:hover { text-decoration: underline; }
+nav, footer { padding: 20px 0 40px 0; background: #f8f8f8; font-size: 16px; }
+nav .navbar-left { float: left; }
+nav .navbar-right { float: right; }
+nav ul, footer ul { margin: 0; padding: 0; }
+nav ul li, footer ul li { display: inline; padding-left: 20px; }
+nav ul li:first-child, footer ul li:first-child { padding-left: 0; }
+nav ul li a, footer ul li a { color: #ff5252; text-decoration: none; }
+nav ul li a:hover, footer ul li a:hover { color: #000; text-decoration: none; }
+nav ul li input, nav ul li button { width: auto; border-radius: 0; }
+nav ul li button.btn-search { border: 1px solid #ff5252; background: #ff5252; color: #fff; height: 35px; }
+.container { width: 80%; margin: auto; }
+.clearfix:after { content: ""; display: table; clear: both; }
+.navbar-brand { font-family: "Vibur", cursive; font-size: 28px; }
+.text-center { text-align: center; }
+
+@media screen and (max-width: 640px){
+    nav .navbar-left, nav .navbar-right { float: none; }
+}
