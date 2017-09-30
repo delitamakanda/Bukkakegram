@@ -17,7 +17,7 @@ class BukkakeForm(ModelForm):
 
     class Meta:
         model = Bukkake
-        exclude = ('likes','user','created_date',)
+        fields = "__all__"
 
 class PhotoDirectForm(BukkakeForm):
     image = CloudinaryJsFileField()
@@ -28,13 +28,13 @@ class PhotoUnsignedDirectForm(BukkakeForm):
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Username', max_length=64)
-    password = forms.CharField(label='Password')
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', max_length=64)
-    password1 = forms.CharField(label='Password')
-    password2 = forms.CharField(label='Password confirmation')
+    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
     email = forms.EmailField(label='Email Address', max_length=255, required=True)
 
     class Meta:
