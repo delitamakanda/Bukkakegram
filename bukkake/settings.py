@@ -11,12 +11,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
-from decouple import config
+from decouple import Config, RepositoryEnv
+DOTENV_FILE = '/Users/delitamakanda/Projets/bukkake/.env'
+config = Config(RepositoryEnv(DOTENV_FILE))
+
 import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
 
@@ -54,7 +56,6 @@ INSTALLED_APPS = [
     'social_core',
     'cloudinary',
     'captcha',
-    #'cookielaw',
     'bukkakegram',
 
 ]
