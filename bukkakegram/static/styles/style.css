@@ -38,6 +38,8 @@ nav ul li button.btn-search { border: 1px solid #ff5252; background: #ff5252; co
 .main-content ul li:nth-child(3n) { height: 540px; }
 .main-content ul li:nth-child(3n)::after { background: #6aa53c; }
 .main-content ul li a { background-color: #fff; border-radius: 3px; padding: 5px;  }
+.btn.button-like { margin-top: 0;  }
+
 @media screen and (max-width: 640px){
     nav .navbar-left, nav .navbar-right { float: none; }
 }
