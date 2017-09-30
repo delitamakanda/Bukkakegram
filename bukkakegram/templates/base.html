@@ -9,12 +9,11 @@
     <meta name="author" content="Délita Makanda">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="{% static 'scripts/jquery-1.12.4.min.js' %}"></script>
-    <script src="{% static 'scripts/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'scripts/infinite.min.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}" />
-    <title>BukkakeGram</title>
+    <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <title>BukkakeGram | {% block title %}{% endblock %}</title>
   </head>
   <body>
       <div class="collapse bg-inverse" id="navbarHeader">
@@ -25,12 +24,6 @@
             <p class="text-muted">Bukkakegram is my very first project with Django. Code School brought to me the tools for learn this fantastic framework and I keep to work with it. Bukkakegram is a web app made for share with the world some cool photos and I hope you like it. </p>
           </div>
           <div class="col-sm-4 py-4">
-            <h4 class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a target="_blank" href="https://twitter.com/delitamakanda?lang=fr" class="text-white">Follow on Twitter</a></li>
-              <li><a target="_blank" href="https://www.facebook.com/donutmessanger/" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
-            </ul>
             <h4 class="text-white">Profile</h4>
             <ul class="list-unstyled">
             {% if user.is_authenticated %}

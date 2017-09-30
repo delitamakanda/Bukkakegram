@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'social_django',
     'social_core',
     'cloudinary',
-    'captcha',
     'bukkakegram',
 
 ]
@@ -166,16 +165,12 @@ RECAPTCHA_PRIVATE_KEY = Config('RECAPTCHA_PRIVATE_KEY')
 NOCAPTCHA = Config('NOCAPTCHA')
 CAPTCHA_AJAX = True
 
-cloud_name = Config('cloud_name')
-api_key = Config('api_key')
-api_secret = Config('api_secret')
-
 # cloudinary config
-cloudinary.config(
-    cloud_name = 'cloud_name', # replace by your own cloud name
-    api_key = 'api_key', # your api key
-    api_secret = 'api_secret', # your api secret
-)
+#cloudinary.config(
+    #cloud_name = 'cloud_name', # replace by your own cloud name
+    #api_key = 'api_key', # your api key
+    #api_secret = 'api_secret', # your api secret
+#)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/

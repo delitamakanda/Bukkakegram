@@ -1,45 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
+{% block title %}Login in{% endblock %}
+
 {% block content %}
-<div class="album text-muted">
-  <div class="container">
+<div class="panel">
+    <h1>BukkakeGram</h1>
 
-<script>
-        var DjangoRecaptchaOptions = { "lang": "en" };
-        if (typeof RecaptchaOptions !== 'object') {
-          RecaptchaOptions = DjangoRecaptchaOptions;
-        } else {
-          for (key in DjangoRecaptchaOptions) {
-            RecaptchaOptions[key] = DjangoRecaptchaOptions[key];
-          }
-        }
-        var recaptchaCallback = function(resp) {
-          document.getElementById("recaptcha-submit").disabled = false;
-        };
-        var recaptchaExpiredCallback = function(resp) {
-          document.getElementById("recaptcha-submit").disabled = true;
-        };
-</script>
+    <p>Doesn't have an account ? <a href="{% url 'register' %}">Sign up</a> </p>
 
-<h2>Login</h2>
-<div class="row">
-    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-<form action="." method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <div class="g-recaptcha" data-sitekey="6LcJEx0UAAAAAEJBS0NYcLa-0v5zldLzvGRYBQQy" data-callback="recaptchaCallback" data-expired-callback="recaptchaExpiredCallback"></div>
-  <input type="submit" id="recaptcha-submit" class="btn btn-raised btn-success" value="Submit" disabled/>
-  </form>
+    <div class="formset">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn" value="Log in" />
+        </form>
 
-  <p>Doesn't have an account ? <a href="{% url 'register' %}">Register</a> !</p>
-</div>
-<div class="text-center col-lg-5 col-md-5 col-sm-5 col-xs-12">
+    </div>
 
-<!--a class="btn btn-raised btn-success" href="{% url 'social:begin' 'google-oauth2' %}">Google+</a><br-->
-<a class="btn btn-primary" href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
-<a class="btn btn-secondary" href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
-<a class="btn btn-info" href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a>
-</div>
+     <h4>Login with</h4>
+    <div>
+        <a title="Se connecter à Google+" href="{% url 'social:begin' 'google-oauth2' %}" class="icons googleplus"><i class="icon ion-social-googleplus"></i></a>
+        <a title="Se connecter à Facebook" href="{% url 'social:begin' 'facebook' %}" class="icons fb"><i class="icon ion-social-facebook"></i></a>
+        <a title="Se connecter à Github" href="{% url 'social:begin' 'github' %}" class="icons gh"><i class="icon ion-social-github"></i></a>
+        <a title="Se connecter à Twitter" href="{% url 'social:begin' 'twitter' %}" class="icons twitter"><i class="icon ion-social-twitter"></i></a>
+    </div>
 
-</div>
 </div>
 {% endblock %}

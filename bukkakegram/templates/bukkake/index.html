@@ -55,24 +55,6 @@
     </div>
 {% endif %}
 
-<div class="loading" style="display: none;">Loading...</div>
-
-
-<script>
-   $(document).ready(function() {
-       var infinite = new Waypoint.Infinite({
-         element: $('.infinite-container')[0],
-         onBeforePageLoad: function () {
-           $('.loading').show();
-         },
-         onAfterPageLoad: function ($items) {
-           $('.loading').hide();
-         }
-       });
-   });
- </script>
-
-
 </div>
 </div>
 
