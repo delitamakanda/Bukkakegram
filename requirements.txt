@@ -11,8 +11,8 @@ psycopg2==2.6.2
 whitenoise==3.2.3
 olefile==0.44
 Pillow==4.0.0
-distribute
-poster
+#distribute==0.6.27
+#poster==0.8.1
 wsgiref==0.1.2
 hellowebapp-deploy==1.0.2
 PyJWT==1.4.2
