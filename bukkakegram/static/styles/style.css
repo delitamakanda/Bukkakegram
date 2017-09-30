@@ -29,6 +29,14 @@ nav ul li button.btn-search { border: 1px solid #ff5252; background: #ff5252; co
 .clearfix:after { content: ""; display: table; clear: both; }
 .navbar-brand { font-family: "Vibur", cursive; font-size: 28px; }
 .text-center { text-align: center; }
+.main-content { overflow-y: scroll; -webkit-overflow-scrolling: touch; }
+.main-content ul { column-gap: 10px; column-width: 156px; list-style: none; margin: 1em auto; max-width: 700px; padding: 10px; width: 100%; }
+.main-content ul li {  align-items: stretch; box-sizing: border-box; column-break-inside: avoid; display: flex; height: 100px; justify-content: center; padding-bottom: 10px; }
+.main-content ul li::after { align-items: center; background: #c85634; border-radius: 4px; box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.3), 2px 2px 3px rgba(0, 0, 0, 0.3); display: flex; flex: 1; justify-content: center; text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);}
+.main-content ul li:nth-child(even) { height: 200px; }
+.main-content ul li:nth-child(even)::after { background: #17729D; }
+.main-content ul li:nth-child(3n) { height: 150px; }
+.main-content ul li:nth-child(3n)::after { background: #6aa53c; }
 
 @media screen and (max-width: 640px){
     nav .navbar-left, nav .navbar-right { float: none; }

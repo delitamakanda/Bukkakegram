@@ -3,46 +3,32 @@
 {% load cloudinary %}
 {% block content %}
 
-<div class="album text-muted">
-  <div class="container">
+<ul>
+    {% for bukkake in bukkakes %}
+    <li>
+        <a href="/{{bukkake.id}}/">
+            {% cloudinary bukkake.image width=156 crop="fill" %}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-<div class="row bukkake">
+            {% if bukkake.description %}
+            <p class="card-text">
+                {{bukkake.description}}
+            </p>
+            {% endif %}
 
-  {% for bukkake in bukkakes %}
-  <div class="column">
-    <a href="/{{bukkake.id}}/">
-        {% cloudinary bukkake.image width=356 height=280 crop="fill" %}
-
-      {% if bukkake.description %}
-      <p class="card-text">
-          {{bukkake.description}}
-      </p>
-      {% endif %}
-
-      <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
-          {% if bukkake.likes > 0 %}
-          {{ bukkake.likes }} likes
-          {% endif %}
-      </button>
-    </a>
-  </div>
-  {% if forloop.counter|divisibleby:3 %}
-  </div><div class="row bukkake">
-  {% endif %}
-  {% endfor %}
-
-</div>
+            <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+                {% if bukkake.likes > 0 %}
+                {{ bukkake.likes }} likes
+                {% endif %}
+            </button>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 
 {% if bukkakes.has_next %}
-    <div class="text-center">
-
-        <a class="" href="?page={{ bukkakes.next_page_number }}">More</a>
-
-    </div>
+<div class="text-center">
+    <a class="" href="?page={{ bukkakes.next_page_number }}">More</a>
+</div>
 {% endif %}
-
-</div>
-</div>
 
 {% endblock %}
