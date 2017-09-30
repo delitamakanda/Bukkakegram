@@ -1,5 +1,5 @@
 # BukkakeGram
-refactor of bukkakegram pinterest-clone (python 2 and Django 1.10)
+refactor of bukkakegram pinterest-clone (python 3 and Django 1.10)
 
 # CirclCI: continuous integration
 [![CircleCI](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master)
@@ -9,7 +9,7 @@ refactor of bukkakegram pinterest-clone (python 2 and Django 1.10)
 sudo pip install virtualenv
 ```
 ```
-virtualenv venv //install venv in the repo
+virtualenv venv -p python3 //install venv in the repo
 ```
 ```
 source venv/bin/activate
@@ -26,7 +26,7 @@ cd root-project
 pip install
 ```
 ```
-python manage.py runserver
+python3 manage.py runserver
 ```
 ```
 go to http://127.0.0.1:8000/
