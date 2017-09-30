@@ -16,15 +16,8 @@
     <title>BukkakeGram | {% block title %}{% endblock %}</title>
   </head>
   <body>
-      <div class="collapse bg-inverse" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Bukkakegram is my very first project with Django. Code School brought to me the tools for learn this fantastic framework and I keep to work with it. Bukkakegram is a web app made for share with the world some cool photos and I hope you like it. </p>
-          </div>
-          <div class="col-sm-4 py-4">
-            <h4 class="text-white">Profile</h4>
+      <div>
+          <a href="{% url 'index' %}" class="navbar-brand">Bukkakegram</a>
             <ul class="list-unstyled">
             {% if user.is_authenticated %}
               <li><a class="text-white" href="{% url 'profile' user.username %}">{{ user.username }}</a></li>
@@ -34,35 +27,20 @@
               <li><a class="text-white" href="{% url 'register' %}">Register</a></li>
             {% endif %}
             </ul>
-            <form class="navbar-form navbar-left" id="searchform" action="/search/" method="get" accept-charset="utf-8">
-              <div class="form-group">
-                <input type="text" class="form-control col-md-8" placeholder="Search" name="q" id="searchbox">
-                <button class="btn btn-primary" type="submit">Search</button>
-              </div>
+            <form id="searchform" action="/search/" method="get" accept-charset="utf-8">
+                <input type="text" placeholder="Search" name="q" id="searchbox">
+                <button class="" type="submit">Search</button>
             </form>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="navbar navbar-inverse bg-inverse">
-      <div class="container d-flex justify-content-between">
-        <a href="{% url 'index' %}" class="navbar-brand">Bukkakegram</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
 
-    <div>
+
 
         {% if messages %}
-            <div>
-                {% for message in messages %}
-                    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            </div>
+            {% for message in messages %}
+                <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endif %}
 
 
@@ -70,19 +48,16 @@
     {% block content %}
     {% endblock %}
 
-    </div>
 
 
-  <footer class="text-muted">
+
+  <footer>
       <div class="container">
-        <p class="float-right">
-          <a href="#">Back to top</a>
-        </p>
-        <p>Copyright (c) 2017 Copyright bukkakegram All Rights Reserved.</p>
         <p>
             <a href="{% url 'flatpage' url='about/' %}">About</a>
             <a href="{% url 'flatpage' url='credits/' %}">Credits</a>
         </p>
+        <p>Copyright (c) 2017 Copyright bukkakegram All Rights Reserved.</p>
       </div>
     </footer>
 

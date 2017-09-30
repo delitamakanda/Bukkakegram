@@ -1,20 +1,7 @@
 {% extends 'base.html' %}
+{% block title %} Index {% endblock %}
 {% load cloudinary %}
 {% block content %}
-
-<section class="jumbotron text-center">
-  <div class="container">
-    <h1 class="jumbotron-heading">Bukkakegram</h1>
-    <p class="lead text-muted">Share your selfies with our community and make the web great again !</p>
-    <p>
-      <a href="{% url 'register' %}" class="btn btn-primary">Sign up now !</a>
-      <a href="{% url 'flatpage' url='about/' %}" class="btn btn-secondary">Read more</a>
-      {% if user.is_authenticated %}
-      <a href="{% url 'add_bukkake' %}" class="btn btn-success">Add a bukkake</a>
-      {% endif %}
-    </p>
-  </div>
-</section>
 
 <div class="album text-muted">
   <div class="container">
@@ -23,7 +10,7 @@
 <div class="row bukkake">
 
   {% for bukkake in bukkakes %}
-  <div class="card infinite-item">
+  <div class="column">
     <a href="/{{bukkake.id}}/">
         {% cloudinary bukkake.image width=356 height=280 crop="fill" %}
 
@@ -41,7 +28,7 @@
     </a>
   </div>
   {% if forloop.counter|divisibleby:3 %}
-  </div><div class="row bukkake infinite-container">
+  </div><div class="row bukkake">
   {% endif %}
   {% endfor %}
 
@@ -50,7 +37,7 @@
 {% if bukkakes.has_next %}
     <div class="text-center">
 
-        <a class="btn infinite-more-link" href="?page={{ bukkakes.next_page_number }}">More</a>
+        <a class="" href="?page={{ bukkakes.next_page_number }}">More</a>
 
     </div>
 {% endif %}
