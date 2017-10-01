@@ -1,28 +1,28 @@
 {% extends 'base.html' %}
+{% block title %} Search {{ query }} {% endblock %}
 {% block content %}
 
-<div class="album text-muted">
-  <div class="container">
+<div class="container">
+    <div class="search__container">
+        <div class="card">
+            {% if error %}
+                <p>No search term.</p>
+            {% endif %}
 
-<h2> Search </h2>
-<div>
-  <p>You searched for: <strong>{{ query }}</strong>.</p>
+            {% if bukkakes %}
+            <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
 
+            <ul>
+                {% for bukkake in bukkakes %}
+                <li class="search-item">
+                    <a href="/{{bukkake.id}}/">{{ bukkake.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
 
-  {% if error %}
-    <p>No search term.</p>
-  {% endif %}
-
-  {% if bukkakes %}
-  <p>Found {{ bukkakes|length }} bukkake{{ bukkakes|pluralize }}.</p>
-  <ul>
-    {% for bukkake in bukkakes %}
-    <li><a href="/{{bukkake.id}}/">{{ bukkake.name }}</a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-</div>
-</div>
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 {% endblock %}
