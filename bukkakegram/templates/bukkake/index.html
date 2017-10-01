@@ -5,9 +5,9 @@
 
 <div class="container">
 {% if user.is_authenticated %}
-    <a href="#" class="btn btn-add" title="Add your bukkake"><i class="icon ion-plus-circled"></i></a>
+    <a href="#" class="btn btn-add" title="Add your bukkake"><i class="icon ion-plus-circled"></i> Add a bukkake</a>
 {% else %}
-    <p>Please <a href="{% url 'login' %}">Login</a>, to add a picture.</p>
+    <a href="{% url 'login' %}" class="link-secondary">Please log in, to add a picture</a>
 {% endif %}
 </div>
 
