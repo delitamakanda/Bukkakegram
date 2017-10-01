@@ -1,8 +1,6 @@
 from django.conf.urls import url, include
 from django.conf import settings
-#from django.views.generic import TemplateView
 from django.views.static import serve
-#from bukkakegram.views import BukkakeSearchListView
 from . import views
 from django.contrib.sitemaps.views import sitemap
 from bukkakegram.sitemap import (
@@ -22,11 +20,9 @@ urlpatterns = [
     url(r'^logout/$', views.logout_view, name="logout"),
     url(r'^like_bukkake/$', views.like_bukkake, name='like_bukkake'),
     url(r'^register/$', views.register_view, name="register"),
-    #url(r'^about/$', TemplateView.as_view(template_name='other/about.html'), name='about'),
     url(r'^settings/$', views.settings, name='settings'),
     url(r'^settings/password/$', views.password, name='password'),
     url(r'^search/$', views.blog_search_list_view, name='blog_search_list_view'),
-    url(r'^add/$', views.add_bukkake, name='add_bukkake'),
     url('', include('social_django.urls', namespace='social')),
     url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]

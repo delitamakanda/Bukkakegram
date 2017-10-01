@@ -3,6 +3,14 @@
 {% load cloudinary %}
 {% block content %}
 
+<div class="container">
+{% if user.is_authenticated %}
+    <a href="#" class="btn btn-add" title="Add your bukkake"><i class="icon ion-plus-circled"></i></a>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">Login</a>, to add a picture.</p>
+{% endif %}
+</div>
+
 <ul>
     {% for bukkake in bukkakes %}
     <li>
@@ -30,6 +38,21 @@
 <div class="text-center">
     <a class="" href="?page={{ bukkakes.next_page_number }}">More</a>
 </div>
+{% endif %}
+
+{% if user.is_authenticated %}
+<div class="popin-box">
+    <div class="content">
+        <a href="#" class="btn-close"><i class="icon ion-close"></i></a>
+        <h3>Add your bukkake</h3>
+        <form enctype="multipart/form-data" action="{% url 'post_bukkake' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" class="btn  btn-success" />
+        </form>
+    </div>
+</div>
+<div class="overlay"></div>
 {% endif %}
 
 {% endblock %}

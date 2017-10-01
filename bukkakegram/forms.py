@@ -17,7 +17,7 @@ class BukkakeForm(ModelForm):
 
     class Meta:
         model = Bukkake
-        fields = "__all__"
+        fields = ['name', 'value', 'material', 'location', 'description', 'image',]
 
 class PhotoDirectForm(BukkakeForm):
     image = CloudinaryJsFileField()

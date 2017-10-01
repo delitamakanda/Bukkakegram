@@ -30,6 +30,7 @@ def blog_search_list_view(request):
 # Create your views here.
 def index(request):
     bukkakes_list = Bukkake.objects.all().order_by('-id')
+    form = BukkakeForm()
     page = request.GET.get('page', 1)
 
     paginator = Paginator(bukkakes_list, 10)
@@ -40,7 +41,7 @@ def index(request):
     except EmptyPage:
         bukkakes = paginator.page(paginator.num_pages)
 
-    return render(request,'bukkake/index.html', {'bukkakes': bukkakes})
+    return render(request,'bukkake/index.html', {'bukkakes': bukkakes, 'form': form})
 
 
 def detail(request, bukkake_id):
@@ -55,11 +56,6 @@ def profile(request, username):
 def post_bukkake(request):
     form = BukkakeForm(request.POST, request.FILES)
     if form.is_valid():
-        #bukkake = Bukkake(name = form.cleaned_data['name'],
-                            #value = form.cleaned_data['value'],
-                            #material = form.cleaned_data['material'],
-                            #location = form.cleaned_data['location'],
-                            #img_url = form.cleaned_data['img_url'])
         bukkake = form.save(commit = False)
         bukkake.user=request.user
         bukkake.save()
@@ -96,10 +92,6 @@ def register_view(request):
             form.save()
             messages.success(request, 'Welcome ! Please log in with id and password.')
             return HttpResponseRedirect('/login')
-    #args = {}
-    #args.update(csrf(request))
-    #args['form'] = RegisterForm()
-    #print args
     else:
         form = RegisterForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -175,17 +167,3 @@ def password(request):
     else:
         form = PasswordForm(request.user)
     return render(request, 'registration/password.html', {'form': form})
-
-
-#def verify_email(backend, user, *args, **kwarkgs):
-    #if backend.name == 'google-oauth2':
-        #existing_person = Bukkake.objects.get(user=kwargs.filter('detail').get('email'))
-        #if not existing_person:
-            #return HttpResponse("dont have an access")
-
-
-@login_required
-def add_bukkake(request):
-    form = BukkakeForm()
-    
-    return render(request, 'bukkake/add.html', {'form': form})
