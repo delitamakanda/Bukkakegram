@@ -9,32 +9,27 @@
             <h2>{{bukkake.name}}</h2>
             <p>Posted by: <a href="/user/{{bukkake.user.username}}/">{{bukkake.user.username}}</a> on {{ bukkake.created_date|date:'d-m-Y' }}</p>
 
-            <div class="fl-left">
-                {% cloudinary bukkake.image width="100vw" crop="fit" %}
-            </div>
-            <div class="fl-left">
-                <p>{{bukkake.material}}</p>
+            {% cloudinary bukkake.image width="350" crop="fit" %}
 
-                {% if bukkake.value > O %}
-                <p>{{bukkake.value}} €</p>
-                {% else %}
-                <p>hello</p>
+            {{bukkake.material}}
+
+            {% if bukkake.value > O %}
+                <span>{{bukkake.value}} €</span>
+            {% else %}
+                <span>this item has no price but great value.</span>
+            {% endif %}
+
+            {% if bukkake.description %}
+                <span>{{bukkake.description}}</span>
+            {% endif %}
+
+            <span>{{bukkake.location}}</span>
+
+            <button id="likes" data-id="{{bukkake.id}}" class="btn button-like" type="button">
+                {% if bukkake.likes > 0 %}
+                    <i class="icon ion-android-favorite"></i> {{ bukkake.likes }} likes
                 {% endif %}
-
-                {% if bukkake.description %}
-                <p>
-                    {{bukkake.description}}
-                </p>
-                {% endif %}
-
-                <p>{{bukkake.location}}</p>
-                <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
-                    {% if bukkake.likes > 0 %}
-                    {{ bukkake.likes }} likes
-                    {% endif %}
-                </button>
-            </div>
-            <div class="clearfix"></div>
+            </button>
         </div>
 
     </div>
