@@ -1,29 +1,29 @@
 {% extends 'base.html' %}
+{% block title %} {{ username }} {% endblock %}
 {% block content %}
 
-<div class="album text-muted">
-  <div class="container">
+<div class="container">
 
-<h2> {{ username }} </h2>
+    {% if request.user.is_authenticated %}
+    <p><a class="link-secondary" href="{% url 'settings' %}">Settings</a></p>
+    {% endif %}
 
-{% if request.user.is_authenticated %}
-<p><a class="" href="{% url 'settings' %}">Settings</a></p>
-{% endif %}
-
-<div class="row bukkake">
-  {% for bukkake in bukkakes %}
-  <div class="card">
-    <a href="/{{bukkake.id}}/">
-    <img src="{{bukkake.image.url}}" width="356" height="280">
-    <p class="card-text">{{bukkake.name}}</p>
-    </a>
-  </div>
-  {% if forloop.counter|divisibleby:3 %}
-  </div><div class="row bukkake">
-  {% endif %}
-  {% endfor %}
-</div>
-
-</div>
+    <h2> {{ username }} </h2>
+    <ul>
+        {% for bukkake in bukkakes %}
+        <li>
+            <a href="/{{bukkake.id}}/">
+                <img src="{{bukkake.image.url}}" width="156">
+                <p class="card-text">
+                    {{bukkake.name}}
+                    <i class="icon ion-android-favorite"></i>
+                    {% if bukkake.likes > 0 %}
+                    {{ bukkake.likes }} likes
+                    {% endif %}
+                </p>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
