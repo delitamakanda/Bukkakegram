@@ -43,8 +43,7 @@
 
     {% if messages %}
     {% for message in messages %}
-    <div {% if message.tags %} class="alert alert-{{ message.tags }}" {% endif %}>
-        <a href="#" class="btn-close"><i class="icon ion-close"></i></a>
+    <div {% if message.tags %} class="alert alert-{{ message.tags }} notify bar-top do-show" {% endif %}>
         {{ message }}
     </div>
     {% endfor %}
