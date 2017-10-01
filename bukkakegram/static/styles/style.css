@@ -62,8 +62,8 @@ input[type='file'] { border: none; }
 a.pagination-link--wide { text-decoration: none; color: #fff; padding: 1.1em 1.6em; }
 a.pagination-link--wide:hover { color: #000; }
 .current { left: 0; position: absolute; text-align: center; top: 0; width: 100%; }
-.card { background: #fff; box-shadow: 0 2px 6px 0 rgba(0,0,0,0.20); border-radius: 8px; padding: 20px; }
-.search__container { padding: 20px 0; width: 100%; margin: 20px auto 0; position: relative;z-index: 1; }
+.card, .pages { background: #fff; box-shadow: 0 2px 6px 0 rgba(0,0,0,0.20); border-radius: 8px; padding: 20px; }
+.search__container, .pages__container { padding: 20px 0; width: 100%; margin: 20px auto 0; position: relative;z-index: 1; }
 .search-item {  border-bottom: 1px solid #D3DCE6; padding-bottom: 20px; margin-bottom: 20px; display: flex; flex-wrap: wrap; }
 .search-item:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
 
