@@ -2,7 +2,7 @@
 refactor of bukkakegram pinterest-clone (python 3 and Django 1.10)
 
 # CirclCI: continuous integration
-[![CircleCI](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master.svg?style=svg)](https://circleci.com/gh/delitamakanda/BukkakeGramNew/tree/master)
+[![CircleCI](https://circleci.com/gh/delitamakanda/Bukkakegram.svg?style=svg)](https://circleci.com/gh/delitamakanda/Bukkakegram)
 
 # Use virtualenv
 ```
