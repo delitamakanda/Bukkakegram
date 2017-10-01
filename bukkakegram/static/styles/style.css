@@ -17,8 +17,8 @@ a { text-decoration: none; color: #ff5252; }
 a.link-secondary { color: #fff; }
 a:hover { text-decoration: underline; }
 nav, footer { padding: 20px 0 40px 0; background: #f8f8f8; font-size: 16px; }
-nav .navbar-left { float: left; }
-nav .navbar-right { float: right; }
+nav .navbar-left, .fl-left { float: left; }
+nav .navbar-right, .fl-right { float: right; }
 nav ul, footer ul { margin: 0; padding: 0; }
 nav ul li, footer ul li { display: inline; padding-left: 20px; }
 nav ul li:first-child, footer ul li:first-child { padding-left: 0; }
@@ -69,5 +69,5 @@ a.pagination-link--wide:hover { color: #000; }
 
 
 @media screen and (max-width: 640px){
-    nav .navbar-left, nav .navbar-right { float: none; }
+    nav .navbar-left, nav .navbar-right, .fl-left, .fl-right { float: none; }
 }

@@ -1,38 +1,42 @@
 {% extends 'base.html' %}
+{% block title %} {{bukkake.name}} {% endblock %}
 {% load cloudinary %}
 
 {% block content %}
-<div class="album text-muted">
-  <div class="container">
+<div class="container">
+    <div class="pages__container">
+        <div class="pages">
+            <h2>{{bukkake.name}}</h2>
+            <p>Posted by: <a href="/user/{{bukkake.user.username}}/">{{bukkake.user.username}}</a> on {{ bukkake.created_date|date:'d-m-Y' }}</p>
 
- <h2>{{bukkake.name}}</h2>
-    <p>Posted by: <a href="/user/{{bukkake.user.username}}/">{{bukkake.user.username}}</a> on {{ bukkake.created_date|date:'d-m-Y' }}</p>
+            <div class="fl-left">
+                {% cloudinary bukkake.image width=600 crop="limit" %}
+            </div>
+            <div class="fl-left">
+                <p>{{bukkake.material}}</p>
 
+                {% if bukkake.value > O %}
+                <p>{{bukkake.value}} €</p>
+                {% else %}
+                <p>hello</p>
+                {% endif %}
 
-    {% cloudinary bukkake.image width=600 crop="fill" %}
+                {% if bukkake.description %}
+                <p>
+                    {{bukkake.description}}
+                </p>
+                {% endif %}
 
-    <p>{{bukkake.material}}</p>
+                <p>{{bukkake.location}}</p>
+                <button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
+                    {% if bukkake.likes > 0 %}
+                    {{ bukkake.likes }} likes
+                    {% endif %}
+                </button>
+            </div>
 
-{% if bukkake.value > O %}
-    <p>{{bukkake.value}} €</p>
-{% else %}
-    <p>hello</p>
-{% endif %}
+        </div>
 
-{% if bukkake.description %}
-<p>
-    {{bukkake.description}}
-</p>
-{% endif %}
-
-<p>{{bukkake.location}}</p>
-<button id="likes" data-id="{{bukkake.id}}" class="btn btn-sm btn-danger glyphicon glyphicon-heart button-like" type="button">
-    {% if bukkake.likes > 0 %}
-    {{ bukkake.likes }} likes
-    {% endif %}
-</button>
-
-
-</div>
+    </div>
 </div>
 {% endblock %}
