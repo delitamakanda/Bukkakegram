@@ -3,27 +3,26 @@
 {% block content %}
 
 <div class="container">
-
     {% if request.user.is_authenticated %}
     <p><a class="link-secondary" href="{% url 'settings' %}">Settings</a></p>
     {% endif %}
-
     <h2> {{ username }} </h2>
-    <ul>
-        {% for bukkake in bukkakes %}
-        <li>
-            <a href="/{{bukkake.id}}/">
-                <img src="{{bukkake.image.url}}" width="156">
-                <p class="card-text">
-                    {{bukkake.name}}
-                    <i class="icon ion-android-favorite"></i>
-                    {% if bukkake.likes > 0 %}
-                    {{ bukkake.likes }} likes
-                    {% endif %}
-                </p>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
 </div>
+
+<ul>
+    {% for bukkake in bukkakes %}
+    <li>
+        <a href="/{{bukkake.id}}/">
+            <img src="{{bukkake.image.url}}" width="156">
+            <p class="card-text">
+                {{bukkake.name}}
+                <i class="icon ion-android-favorite"></i>
+                {% if bukkake.likes > 0 %}
+                {{ bukkake.likes }} likes
+                {% endif %}
+            </p>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}
