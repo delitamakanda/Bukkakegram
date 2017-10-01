@@ -8,7 +8,7 @@ class BukkakeSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Bukkake.objects.all()
+        return Bukkake.objects.order_by('-id')[:10]
 
     def lastmod(self, obj):
         return obj.created_date
