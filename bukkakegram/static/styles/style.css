@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 *,*:after,*:before { box-sizing: border-box; -webkit-transition: 0.3s; transition: 0.3s; }
 body { background-color: #ff5252; font: 14px/22px 'Lato', Helvetica, Arial, sans-serif; margin: 0; }
-.panel { width: 360px; background: rgba(255, 255, 255, 0.9); border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); margin: 5% auto; text-align: center; color: #000; display: inline-block; overflow-x: hidden; padding-top: 40px;  padding-bottom: 30px; }
+.panel { width: 360px; background: rgba(255, 255, 255, 0.9); border-radius: 2px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); margin: 5% auto; text-align: center; color: #000; overflow-x: hidden; padding-top: 40px;  padding-bottom: 30px; }
 .formset {padding: 25px; max-width: 320px; margin: auto; }
 .panel h1 { font-size: 60px; margin: 25px 0 15px; display: inline-block; width: 100%; font-weight: 200; color: #ff5252; font-family: "Vibur", cursive; }
 .panel h4 { font-weight: 400; font-size: 16px; text-align: left; padding-left: 15px; padding-bottom: 5px; color: #ff5252; border-bottom: 1px solid #ff5252; }
