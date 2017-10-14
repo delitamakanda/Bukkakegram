@@ -32,14 +32,5 @@ python3 manage.py runserver
 go to http://127.0.0.1:8000/
 ```
 
-# test in local
-```
-cloudinary.config(
-    cloud_name = "<cloud_name>", # replace by your own cloud name
-    api_key = "<api_key>", # your api key
-    api_secret = "<api_secret>", # your api secret
-)
-```
-
 # live site
 [BukkakeGram](https://bukkakegram.herokuapp.com/)
