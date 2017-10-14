@@ -93,3 +93,6 @@ db.sqlite3
 
 # Rope project settings
 .ropeproject
+
+# static files
+media/
