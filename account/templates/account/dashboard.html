@@ -11,6 +11,14 @@
         {% if request.user.profile %}
         <a href="{% url 'edit' %}">Edit your profile</a>
         {% endif %}
+
+        {% with total_bukkakes_created=request.user.bukkakes_created.count %}
+            <p>Welcome to your dashboard. You have bookmarked {{ total_bukkakes_created }} image{{ total_bukkakes_created|pluralize }}.</p>
+        {% endwith %}
+
+        <p>Drag the following button to your bookmarks toolbar to bookmark images from other websites <i class="icon ion-arrow-right-c"></i> <a href="javascript:{% include 'bookmarklet_launcher.js' %}" class="button">Bookmark it</a><p>
+
+        
     </div>
 
 </div>

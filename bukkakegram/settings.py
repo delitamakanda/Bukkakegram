@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'social_core',
     'social_django',
+    'bukkake',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -175,3 +177,5 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
 )
+
+THUMBNAIL_DEBUG = config('DEBUG', cast=bool)
