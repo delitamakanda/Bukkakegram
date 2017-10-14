@@ -14,7 +14,7 @@ body { background-color: #f5f5f5; font: 14px/22px 'Lato', Helvetica, Arial, sans
 .icons { width: 40px; height: 40px; line-height: 37px; color: #fff; border-radius: 100%; display: inline-block; }
 input { border-radius: 20px; border: 1px solid #ff5252; height: 35px; position: relative; z-index: 2; padding: 5px; background: none; color: #ff5252; width: 100%; }
 input:focus { outline: 0 none; }
-input[type="file"] { border: 0 none; border-radius: 0; }
+input[type="file"] { border: 0 none; border-radius: 0; width: auto; display: block; }
 label { font-weight: 300; color: #ff5252; font-size: 14px; min-height: 17px; text-align: left; z-index: 1; }
 a { text-decoration: none; color: #ff5252; }
 a.link-secondary { color: #fff; }
@@ -60,6 +60,8 @@ input[type='file'] { border: none; }*/
 .alert.alert-info { background: #29b6f6; }
 .alert.alert-success { background: #66BB6A; }
 .alert.alert-error { background: #EF5350; }
+.alert .close { float: right; }
+.alert .close a { color: #fff; }
 /*.pagination-container { margin-top: 1em; padding-top: 2em; text-align: center; display: inline-flex;width: 100%; }
 .pagination { margin: 0 auto; }
 .pagination-item--wide, .pagination-item { list-style-type: none; }
