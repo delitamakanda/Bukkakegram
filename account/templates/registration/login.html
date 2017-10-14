@@ -13,7 +13,7 @@
        <p>Please, use the following form to log in:</p>
      {% endif %}
 
-     <p>Doesn't have an account ? <a href="">Sign up</a> </p>
+     <p>Doesn't have an account ? <a href="{% url 'register' %}">Sign up</a> </p>
 
     <div class="formset">
         <form action="{% url 'login' %}" method="POST">
