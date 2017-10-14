@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+<div class="panel">
+
+
+     <p>Please, sign up using the following form : </p>
+
+    <div class="formset">
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            <input type="submit" class="btn" value="Create an account" />
+        </form>
+
+    </div>
+
+
+     <h4>Sign up with</h4>
+    <div>
+        <a title="Se connecter à Google+" href="" class="icons googleplus"><i class="icon ion-social-googleplus"></i></a>
+        <a title="Se connecter à Facebook" href="" class="icons fb"><i class="icon ion-social-facebook"></i></a>
+        <a title="Se connecter à Github" href="" class="icons gh"><i class="icon ion-social-github"></i></a>
+        <a title="Se connecter à Twitter" href="" class="icons twitter"><i class="icon ion-social-twitter"></i></a>
+    </div>
+
+</div>
+{% endblock %}
