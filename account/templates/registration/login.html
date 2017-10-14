@@ -3,14 +3,23 @@
 
 {% block content %}
 <div class="panel">
-    <h1>Bukkakegram</h1>
 
-    <p>Doesn't have an account ? <a href="">Sign up</a> </p>
+    {% if form.errors %}
+       <p>
+         Your username and password didn't match.
+         Please try again.
+       </p>
+     {% else %}
+       <p>Please, use the following form to log in:</p>
+     {% endif %}
+
+     <p>Doesn't have an account ? <a href="">Sign up</a> </p>
 
     <div class="formset">
-        <form action="" method="POST">
+        <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}" />
             <input type="submit" class="btn" value="Log in" />
         </form>
 

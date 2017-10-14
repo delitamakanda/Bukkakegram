@@ -8,13 +8,41 @@
     <meta name="author" content="Délita Makanda">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+    <title>Bukkakegram - {% block title %}{% endblock %}</title>
+    <link href="//fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/app.css' %}" />
     <link rel="stylesheet" type="text/css" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
-    <title>Bukkakegram - {% block title %}{% endblock %}</title>
+    <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div id="header">
+        <div class="content">
+            <span class="brand">Bukkakegram</span>
+            {% if request.user.is_authenticated %}
+                <ul class="menu">
+                    <li {% if section == "dashboard" %} class="selected" {% endif %}>
+                        <a href="{% url 'dashboard' %}">My dashboard</a>
+                    </li>
+                    <li {% if section == "images" %} class="selected" {% endif %}>
+                        <a href="#">Bukkakes</a>
+                    </li>
+                    <li {% if section == "people" %} class="selected" {% endif %}>
+                        <a href="#">Friends</a>
+                    </li>
+                </ul>
+            {% endif %}
+            <span class="user">
+                {% if request.user.is_authenticated %}
+                    Hello {{ request.user.first_name }}, <a href="{% url 'logout' %}">logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="container">
 
     {% if messages %}
         {% for message in messages %}
@@ -28,6 +56,8 @@
 
     {% block content %}
     {% endblock %}
+
+    </div>
 
 
     <script src="{% static 'scripts/app.js' %}"></script>
