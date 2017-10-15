@@ -95,4 +95,6 @@ db.sqlite3
 .ropeproject
 
 # static files
-media/
+media/cache/
+media/images/
+media/users/
