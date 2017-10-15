@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT bukkake.wsgi:application
+web: waitress-serve --port=$PORT bukkakegram.wsgi:application

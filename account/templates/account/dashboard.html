@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="page dashboard-page">
+    <div class="page-title">
+        <h3>Dashboard</h3>
+    </div>
+    <div class="page-content">
+        <a href="{% url 'password_change' %}">Password change</a>
+        {% if request.user.profile %}
+        <a href="{% url 'edit' %}">Edit your profile</a>
+        {% endif %}
+        <a href="{% url 'bukkakes:create' %}">Bookmark an image</a>
+
+        {% with total_bukkakes_created=request.user.bukkakes_created.count %}
+            <p>Welcome to your dashboard. You have bookmarked {{ total_bukkakes_created }} image{{ total_bukkakes_created|pluralize }}.</p>
+        {% endwith %}
+
+        <p>Drag the following button to your bookmarks toolbar to bookmark images from other websites <i class="icon ion-arrow-right-c"></i> <a href="javascript:{% include 'bookmarklet_launcher.js' %}" class="button">Bookmark it</a><p>
+
+        <h4>What's up ?</h4>
+        <div id="action-list">
+            {% for action in actions %}
+                {% include "actions/action/detail.html" %}
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+</div>
+{% endblock %}

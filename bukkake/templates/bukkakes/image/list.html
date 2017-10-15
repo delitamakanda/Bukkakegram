@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Images bookmarked{% endblock %}
+
+{% block content %}
+<div class="page dashboard-page">
+    <div class="page-title">
+        <h3>Images bookmarked</h3>
+    </div>
+    <div class="page-content">
+        <a href="{% url 'bukkakes:ranking' %}">10 most viewed images</a>
+        <div id="image-list">
+            {% include "bukkakes/image/list_ajax.html" %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block domready %}
+var page = 1;
+var empty_page = false;
+var block_request = false;
+
+$(window).scroll(function() {
+    var margin = $(document).height() - $(window).height() - 200;
+    if ($(window).scrollTop() > margin && empty_page == false && block_request == false) {
+        block_request = true;
+        page += 1;
+        $.get('?page=' + page, function(data) {
+            if (data == '') {
+                empty_page = true;
+            } else {
+                block_request = false;
+                $('#image-list').append(data);
+            }
+        });
+    }
+});
+
+{% endblock %}
