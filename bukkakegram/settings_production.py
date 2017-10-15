@@ -9,6 +9,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['.herokuapp.com', '*',]
 
-DEBUG = config('DEBUG')
+DEBUG = config('DEBUG', cast=bool)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
