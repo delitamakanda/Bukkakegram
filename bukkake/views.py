@@ -2,7 +2,10 @@ import redis
 from django.conf import settings
 
 #connect to redis
-r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
+if settings.DEBUG:
+    r = redis.StrictRedis(host=settings.REDIS_HOST, port=settings.REDIS_PORT, db=settings.REDIS_DB)
+else:
+    r = redis.from_url(settings.REDISTOGO_URL)
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
