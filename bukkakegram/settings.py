@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'bukkake',
     'actions',
     'sorl.thumbnail',
+    'storages',
 ]
 
 MIDDLEWARE = [
