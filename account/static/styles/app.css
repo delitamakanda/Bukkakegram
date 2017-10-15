@@ -35,6 +35,9 @@ a:hover { text-decoration: underline; }
 .dashboard-page .page-title { border-bottom: 1px solid #e6e6e6; padding: 5px 10px 2px 10px; }
 .dashboard-page .page-content { padding: 10px 10px; }
 #image-list .image { display: inline-block; width: 33%; }
+#image-list .image .info { padding: 0px 0 20px; }
+.images-likes .avatar { width: 80px; height: 80px; border-radius: 100% 100%; overflow: hidden;}
+.images-likes .avatar img { width: auto; height: 100%; }
 /*
 .text-center { text-align: center; }
 .main-content { overflow-y: scroll; -webkit-overflow-scrolling: touch; }

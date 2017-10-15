@@ -1,6 +1,6 @@
 {% load thumbnail %}
 
-{% with user=actions.user profile=action.user.profile %}
+{% with user=action.user profile=action.user.profile %}
     <div class="action">
         <div class="images">
             {% if profile.photo %}
@@ -28,7 +28,7 @@
                 <span class="date">{{ action.created|timesince }} ago</span>
                 <br/>
                 <a href="{{ user.get_absolute_url }}">
-                    {{ User.first_name }}
+                    {{ user.first_name }}
                 </a>
                 {{ action.verb }}
                 {% if action.target %}

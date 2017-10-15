@@ -35,7 +35,9 @@
                 {% for user in image.users_like.all %}
                     <div>
                         {% if user.profile.photo.url is not null %}
-                            <img src="{{ user.profile.photo.url }}">
+                            <div class="avatar">
+                                <img src="{{ user.profile.photo.url }}">
+                            </div>
                         {% endif %}
                         <p>{{ user.first_name }} like this image</p>
                     </div>
