@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'social_core',
     'social_django',
     'bukkake',
+    'actions',
     'sorl.thumbnail',
 ]
 

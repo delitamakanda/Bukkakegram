@@ -19,6 +19,13 @@
 
         <p>Drag the following button to your bookmarks toolbar to bookmark images from other websites <i class="icon ion-arrow-right-c"></i> <a href="javascript:{% include 'bookmarklet_launcher.js' %}" class="button">Bookmark it</a><p>
 
+        <h4>What's up ?</h4>
+        <div id="action-list">
+            {% for action in actions %}
+                {% include "actions/action/detail.html" %}
+            {% endfor %}
+        </div>
+
 
     </div>
 

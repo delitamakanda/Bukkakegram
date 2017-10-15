@@ -7,6 +7,7 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from .forms import BukkakeCreateForm
 from .models import Bukkake
+from actions.utils import create_action
 
 # Create your views here.
 @login_required
@@ -19,6 +20,7 @@ def image_create(request):
 
             new_item.user = request.user
             new_item.save()
+            create_action(request.user, 'bookmark image', new_item)
             messages.success(request, 'Bukkake added successfully.')
 
             return redirect(new_item.get_absolute_url())
@@ -43,6 +45,7 @@ def image_like(request):
             image = Bukkake.objects.get(id=image_id)
             if action == 'like':
                 image.users_like.add(request.user)
+                create_action(request.user, 'likes', image)
             else:
                 image.users_like.remove(request.user)
             return JsonResponse({'status': 'ok'})
