@@ -12,8 +12,9 @@ body { background-color: #f9f9f9; font: 14px/22px 'Lato', Helvetica, Arial, sans
 .icons.googleplus { background: #dd4a3a; }
 .icons.gh {background: #000; }
 .icons { width: 40px; height: 40px; line-height: 37px; color: #fff; border-radius: 100%; display: inline-block; }
-input, textarea { border-radius: 2px; border: 1px solid #ff5252; height: 35px; position: relative; z-index: 2; padding: 5px; background: none; color: #ff5252; width: 100%; }
+input, textarea { -webkit-appearance: none; appearance: none; border-radius: 2px; border: 1px solid #ff5252; height: 35px; position: relative; z-index: 2; padding: 5px; background: none; color: #ff5252; width: 100%; }
 textarea { height: auto; }
+button { -webkit-appearance: none; appearance: none; }
 input:focus, textarea:focus { outline: 0 none; }
 input[type="file"] { border: 0 none; border-radius: 0; width: auto; display: block; }
 label { font-weight: 300; color: #ff5252; font-size: 14px; min-height: 17px; text-align: left; z-index: 1; }
