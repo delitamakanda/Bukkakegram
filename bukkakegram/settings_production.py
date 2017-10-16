@@ -29,3 +29,6 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # media upload files on S3 AWS
 
 DEFAULT_FILE_STORAGE = 'bukkakegram.storage_backends.MediaStorage'
+
+# force overwrite on thumbnail on AWS
+THUMBNAIL_FORCE_OVERWRITE = True
