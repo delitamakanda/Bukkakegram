@@ -17,7 +17,7 @@ requests-oauthlib==0.8.0
 six==1.11.0
 social-auth-app-django==1.2.0
 social-auth-core==1.4.0
-sorl-thumbnail==12.3
+sorl-thumbnail==12.4a1
 urllib3==1.22
 hellowebapp-deploy==1.0.2
 psycopg2
