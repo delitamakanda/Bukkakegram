@@ -21,7 +21,7 @@
         jQuery('body').append(box_html);
 
         //close event
-        jQuery('#bookmarklet #close').on('click', function(evt) {
+        jQuery('#bookmarklet #close').click(function(evt) {
             evt.preventDefault();
 
             $('#bookmarklet').remove();
