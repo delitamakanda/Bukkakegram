@@ -19,11 +19,11 @@
             <div class="image-info">
                 <div>
                     <span class="count">
-                        <span class="total">{{ total_likes }}</span> like{{ total_likes|pluralize }}
+                        <span class="total">{{ total_likes }}</span> like{{ total_likes|pluralize }} <i class="icon ion-android-favorite"></i>
                     </span>
 
                     <span class="count_views">
-                        <span class="total_views">{{ total_views }}</span> view{{ total_views|pluralize }}
+                        <span class="total_views">{{ total_views }}</span> view{{ total_views|pluralize }} <i class="icon ion-eye"></i>
                     </span>
 
                     <a href="#" data-id="{{ image.id }}" data-action="{% if request.user in users_like %}un{% endif %}like" class="like button">
