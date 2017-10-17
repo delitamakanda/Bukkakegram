@@ -34,7 +34,7 @@ DEFAULT_FILE_STORAGE = 'bukkakegram.storage_backends.MediaStorage'
 THUMBNAIL_FORCE_OVERWRITE = True
 
 # RUN MAILER
-EMAIL_USE_TLS = True
+EMAIL_USE_TLS = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config('Server')
 EMAIL_HOST_USER = config('Username')
