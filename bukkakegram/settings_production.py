@@ -32,3 +32,12 @@ DEFAULT_FILE_STORAGE = 'bukkakegram.storage_backends.MediaStorage'
 
 # force overwrite speed up AWS
 THUMBNAIL_FORCE_OVERWRITE = True
+
+# RUN MAILER
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
