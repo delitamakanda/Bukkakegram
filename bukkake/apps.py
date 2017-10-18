@@ -7,4 +7,4 @@ class BukkakeConfig(AppConfig):
 
     def ready(self):
         #import signals handlers
-        import . import signals
+        import bukkake.signals
