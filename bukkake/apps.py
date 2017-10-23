@@ -7,4 +7,4 @@ class BukkakeConfig(AppConfig):
 
     def ready(self):
         #import signals handlers
-        import bukkake.signals
+        from .signals import users_like_changed
