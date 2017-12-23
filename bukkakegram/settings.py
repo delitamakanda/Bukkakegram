@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'storages',
     'channels',
+    'channels_presence',
 ]
 
 MIDDLEWARE = [

@@ -25,3 +25,5 @@ django-storages==1.6.5
 boto3==1.4.7
 python-openid
 channels==1.1.8
+celery==4.1.0
+django-channels-presence==0.0.9

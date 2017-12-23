@@ -15,17 +15,16 @@
                 <li><span id="lurkers-count">0</span> onlookers</li>
             </ul>
             <ul id="user-list">
-                <li>user</li>
             </ul>
         </div>
-        <div class="column">
+        <div class="column" id="all_messages">
             <div class="hidden" id="last_message_id">{{ first_message_id }}</div>
             {% if first_message_id > 0 %}
-                <button id="road_old_messages">Read old messages</button>
+                <button id="read_old_messages">Read old messages</button>
             {% endif %}
             <ul id="chat">
                 {% for message in chat_messages %}
-                    <li><strong>{{ message.user }}</strong> {{ message.message_html | safe }}</li></li>
+                    <li class="list-group-item"><strong>{{ message.user }}</strong> {{ message.message_html | safe }}</li></li>
                 {% empty %}
                     <div id="no_messages">No messages yet.</div>
                 {% endfor %}
