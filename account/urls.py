@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from . import views
+from .views import ChatRoomView
 
 urlpatterns = [
     #url(r'^login/$', views.user_login, name='login'),
@@ -20,4 +21,5 @@ urlpatterns = [
     #url(r'^users/(?P<username>[-\w]+)/$', views.user_detail, name='user_detail'),
     url(r'^users/(?P<username>.+)/$', views.user_detail, name='user_detail'),
     url(r'^follow/$', views.user_follow, name='user_follow'),
+    url(r'^chatroom/$', ChatRoomView.as_view(), name='chatroom'),
 ]

@@ -6,10 +6,11 @@ from common.decorators import ajax_required
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Contact
+from .models import Profile, Contact, ChatMessage
 from django.contrib.auth.models import User
 from actions.utils import create_action
 from actions.models import Action
+from django.views.generic import View
 
 @login_required
 def edit(request):
@@ -103,3 +104,23 @@ def user_login(request):
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form':form})
+
+
+class ChatRoomView(View):
+
+    def get(self, request):
+        chat_queryset = ChatMessage.objects.order_by('-created')[:10]
+        chat_message_count = len(chat_queryset)
+        if chat_message_count > 0:
+            first_message_count = chat_queryset[len(chat_queryset)-1].id
+        else:
+            first_message_id = -1
+        previous_id = -1
+        if first_message_id != -1:
+            try:
+                previous_id = ChatMessage.objects.filter(pk__lt=first_message_id).order_by('-pk')[:1][0].id
+            except IndexError:
+                previous_id = -1
+        chat_messages = reversed(chat_queryset)
+
+        return render(request, 'chat/chatroom.html', {'section': 'chatroom','chat_messages': chat_messages, 'first_message_id': first_message_id})

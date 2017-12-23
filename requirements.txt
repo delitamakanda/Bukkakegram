@@ -24,3 +24,4 @@ psycopg2
 django-storages==1.6.5
 boto3==1.4.7
 python-openid
+channels==1.1.8

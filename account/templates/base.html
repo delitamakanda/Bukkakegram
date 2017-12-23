@@ -29,6 +29,9 @@
                     <li {% if section == "people" %} class="selected" {% endif %}>
                         <a href="{% url 'user_list' %}">Friends</a>
                     </li>
+                    <li {% if section == "chatroom" %} class="selected" {% endif %}>
+                        <a href="{% url 'chatroom' %}">Chatroom</a>
+                    </li>
                 </ul>
             {% endif %}
             <span class="user">
@@ -92,3 +95,6 @@
     </script>
 </body>
 </html>
+
+{% block extra_scripts %}
+{% endblock %}

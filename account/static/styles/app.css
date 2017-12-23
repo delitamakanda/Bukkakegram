@@ -48,4 +48,5 @@ a:hover { text-decoration: underline; }
 .alert.alert-error { background: #EF5350; }
 .alert .close { float: right; }
 .alert .close a { color: #fff; }
+.hidden { visibility: hidden; opacity: 0; }
 @media screen and (max-width: 640px) { #image-list .image { width: 100%; text-align: center; } }
