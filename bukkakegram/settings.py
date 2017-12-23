@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'storages',
     'channels',
     'channels_presence',
+    'django_celery_beat',
 ]
 
 MIDDLEWARE = [
