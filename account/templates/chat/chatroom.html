@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}Bukkakegram Chat Room{% endblock %}
+
+{% block content %}
+<div class="page dashboard-page">
+    <div class="page-title">
+        <h3>Chatroom</h3>
+    </div>
+    <div class="page-content">
+        <div class="column">
+            <ul>
+                <li><span id="loggedin-users-count">0</span> users online</li>
+                <li><span id="lurkers-count">0</span> onlookers</li>
+            </ul>
+            <ul id="user-list">
+                <li>user</li>
+            </ul>
+        </div>
+        <div class="column">
+            <div class="hidden" id="last_message_id">{{ first_message_id }}</div>
+            {% if first_message_id > 0 %}
+                <button id="road_old_messages">Read old messages</button>
+            {% endif %}
+            <ul id="chat">
+                {% for message in chat_messages %}
+                    <li><strong>{{ message.user }}</strong> {{ message.message_html | safe }}</li></li>
+                {% empty %}
+                    <div id="no_messages">No messages yet.</div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <form id="chatform" autocomplete="off">
+                <div>
+                    {% if user.is_authenticated %}
+                    <input type="text" id="message" placeholder="Type message here" required>
+                    {% else %}
+                    <a href="{% url 'login' %}">Please login to chat.</a>
+                    {% endif %}
+                </div>
+                <div>
+                    <button id="go" type="submit" class="btn">Send message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript" src="{% static 'scripts/reconnecting-websocket.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/realtime.js' %}"></script>
+<script type="text/javascript" src="{% static 'scripts/loadhistory.js' %}"></script>
+{% endblock %}
