@@ -4,7 +4,7 @@ from celery import Celery
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bukkakegram.settings')
 
-app = Celery('tasks', broker=config('CLOUDAMQP_URL'))
+app = Celery('tasks', broker=config('REDISTOGO_URL'))
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
