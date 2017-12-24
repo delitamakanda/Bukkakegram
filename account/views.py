@@ -112,7 +112,7 @@ class ChatRoomView(View):
         chat_queryset = ChatMessage.objects.order_by('-created')[:10]
         chat_message_count = len(chat_queryset)
         if chat_message_count > 0:
-            first_message_count = chat_queryset[len(chat_queryset)-1].id
+            first_message_id = chat_queryset[len(chat_queryset)-1].id
         else:
             first_message_id = -1
         previous_id = -1

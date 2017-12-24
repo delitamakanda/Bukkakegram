@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'storages',
     'channels',
     'channels_presence',
+    'celery',
     'django_celery_beat',
 ]
 
@@ -198,3 +199,13 @@ REDIS_HOST = config('REDIS_HOST')
 REDIS_PORT = config('REDIS_PORT')
 REDIS_DB = config('REDIS_DB')
 REDISTOGO_URL = config('REDISTOGO_URL')
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [os.environ.get('REDISTOGO_URL', 'redis://localhost:6379')],
+        },
+        "ROUTING": "account.routing.channel_routing",
+    },
+}

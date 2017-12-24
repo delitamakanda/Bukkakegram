@@ -28,3 +28,6 @@ channels==1.1.8
 celery==4.1.0
 django-channels-presence==0.0.9
 django_celery_beat==1.1.0
+asgi-redis==1.4.3
+bleach==2.1.2
+markdown==2.6.10
