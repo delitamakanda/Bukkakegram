@@ -1,4 +1,5 @@
 from __future__ import absolute_import, unicode_literals
+from decouple import config
 import os
 from celery import Celery
 
