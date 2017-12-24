@@ -204,7 +204,7 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDISTOGO_URL', 'redis://localhost:6379')],
+            "hosts": [config('REDISTOGO_URL')],
         },
         "ROUTING": "account.routing.channel_routing",
     },
