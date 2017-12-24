@@ -6,7 +6,8 @@ from account.consumers import chat_connect, chat_disconnect, chat_receive, loadh
 chat_routing = [
     route("websocket.connect", chat_connect),
     route("websocket.disconnect", chat_disconnect),
-    route("websocket.receive", chat_receive)
+    route("websocket.receive", chat_receive),
+    route("http.request", StaticFilesConsumer()),
 ]
 
 loadhistory_routing = [
@@ -18,5 +19,4 @@ loadhistory_routing = [
 channel_routing = [
     include(chat_routing, path=r"^/ws/$"),
     include(loadhistory_routing, path=r"^/loadhistory/$"),
-    route('http.request', StaticFilesConsumer()),
 ]
