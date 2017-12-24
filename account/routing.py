@@ -18,4 +18,5 @@ loadhistory_routing = [
 channel_routing = [
     include(chat_routing, path=r"^/ws/$"),
     include(loadhistory_routing, path=r"^/loadhistory/$"),
+    route('http.request', StaticFilesConsumer()),
 ]
