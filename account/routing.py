@@ -1,4 +1,5 @@
 from channels.routing import route
+from channels.staticfiles import StaticFilesConsumer
 from channels import include
 from account.consumers import chat_connect, chat_disconnect, chat_receive, loadhistory_connect, loadhistory_disconnect, loadhistory_receive
 
