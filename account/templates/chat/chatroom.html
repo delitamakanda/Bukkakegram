@@ -20,7 +20,7 @@
         <div class="column" id="all_messages">
             <div class="hidden" id="last_message_id">{{ first_message_id }}</div>
             {% if first_message_id > 0 %}
-                <button id="read_old_messages">Read old messages</button>
+                <button id="read_old_messages" class="btn btn-secondary">Read old messages</button>
             {% endif %}
             <ul id="chat">
                 {% for message in chat_messages %}

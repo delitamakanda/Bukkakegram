@@ -6,6 +6,7 @@ body { background-color: #f9f9f9; font: 14px/22px 'Lato', Helvetica, Arial, sans
 .panel h1,  #header .brand { font-size: 60px; margin: 25px 0 15px; display: inline-block; width: 100%; font-weight: 200; color: #ff5252; font-family: "Vibur", cursive; }
 .panel h4 { font-weight: 400; font-size: 16px; text-align: left; padding-left: 15px; padding-bottom: 5px; color: #ff5252; border-bottom: 1px solid #ff5252; }
 .btn { border: 0; padding: 10px; border-radius: 2px; width: 100%; margin-top: 15px; background: #ff5252; font-size: 16px; font-weight: 400; cursor: pointer; color: #fff; position: relative; overflow: hidden; }
+.btn.btn-secondary { background-color: #cccccc; }
 .btn.btn-small { width: auto; }
 .icons.twitter { background: #00aced; }
 .icons.fb { background: #3b579d; }
