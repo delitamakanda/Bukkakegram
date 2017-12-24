@@ -2,7 +2,7 @@ $(function() {
     // When we're using HTTPS, use WSS too.
     $('#all_messages').scrollTop($('#all_messages')[0].scrollHeight);
     var to_focus = $("#message");
-    var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
+    var ws_scheme = window.location.protocol == "https:" ? "ws" : "ws";
     var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/ws/");
 
     chatsock.onmessage = function(message) {
