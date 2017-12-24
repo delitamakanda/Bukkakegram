@@ -33,9 +33,16 @@ go to http://127.0.0.1:8000/
 ```
 
 # Install redis
+
 ```
 src/redis-server
 ```
 
-# live site
-[BukkakeGram](https://bukkakegram.herokuapp.com/)
+# Celery Worker
+
+```
+celery -A account worker -B -l info
+```
+
+## Demo
+[Bukkakegram](https://bukkakegram.herokuapp.com/)
