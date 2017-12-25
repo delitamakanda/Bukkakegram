@@ -17,6 +17,6 @@ loadhistory_routing = [
 ]
 
 channel_routing = [
-    include(chat_routing, path=r"^/ws/$"),
-    include(loadhistory_routing, path=r"^/loadhistory/$"),
+    include(chat_routing, path=r"^/account/chatroom/ws/$"),
+    include(loadhistory_routing, path=r"^/account/chatroom/loadhistory/$"),
 ]
