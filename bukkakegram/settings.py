@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'channels_presence',
     'celery',
     'django_celery_beat',
+    'tastypie',
 ]
 
 MIDDLEWARE = [

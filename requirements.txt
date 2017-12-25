@@ -37,3 +37,4 @@ Twisted==17.9.0
 gunicorn==19.7.1
 gevent
 eventlet
+django-tastypie==0.14.0
