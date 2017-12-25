@@ -3,7 +3,7 @@ $(function() {
     $('#all_messages').scrollTop($('#all_messages')[0].scrollHeight);
     var to_focus = $("#message");
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/account/chatroom/ws/");
+    var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/ws/");
 
     chatsock.onmessage = function(message) {
 
