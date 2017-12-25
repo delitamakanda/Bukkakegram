@@ -1,4 +1,4 @@
-from tastypie.resources import ModelResource
+from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from bukkake.models import Bukkake
 from tastypie.authorization import Authorization
 from django.contrib.auth.models import User
@@ -10,6 +10,9 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'user'
         fields = ['username', 'first_name', 'last_name', 'last_login']
+        filtering = {
+            'username': ALL,
+        }
 
 
 class BukkakeResource(ModelResource):
@@ -19,3 +22,7 @@ class BukkakeResource(ModelResource):
         queryset = Bukkake.objects.all()
         resource_name = 'bukkake'
         authorization = Authorization()
+        filtering = {
+            'user': ALL_WITH_RELATIONS,
+            'created': ['exact', 'lt', 'lte', 'gte', 'gt'],
+        }
