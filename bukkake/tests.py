@@ -1,12 +1,12 @@
 import datetime
 from django.test import TestCase
 from django.contrib.auth.models import User
-from tastypie.test import ResourceTestMixin
+from tastypie.test import ResourceTestCaseMixin
 from bukkake.models import Bukkake
 
 # Create your tests here.
 
-class BukkakeResourceTest(ResourceTestMixin, TestCase):
+class BukkakeResourceTest(ResourceTestCaseMixin, TestCase):
     def setUp(self):
         super(BukkakeResourceTest, self).setUp()
 
