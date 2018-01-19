@@ -27,6 +27,7 @@ v1_api.register(BukkakeResource())
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('account.urls')),
+    url(r'^links/', include('links.urls')),
     url(r'^', include('bukkake.urls', namespace='bukkakes')),
     url(r'^api/', include(v1_api.urls)),
     url(r'^social-auth/', include('social_django.urls', namespace='social')),

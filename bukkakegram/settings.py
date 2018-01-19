@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'celery',
     'django_celery_beat',
     'tastypie',
+    'links',
 ]
 
 MIDDLEWARE = [
