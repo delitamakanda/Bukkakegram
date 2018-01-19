@@ -10,6 +10,22 @@
     <div class="page-content">
         <p>Author : {{ object.submitter.username }}</p>
         <p>Created on : {{ object.submitted }}</p>
+
+        <p>
+            <h4>New Comment</h4>
+            <form action="{% url 'new-comment' %}?link_pk={{ object.pk }}" method="post">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <input type="submit" value="Comment" class="btn" />
+            </form>
+        </p>
+
+        <p>Comments</p>
+        <ul>
+            {% for comment in comments %}
+            <li>{{ comment.body }}</li>
+            {% endfor %}
+        </ul>
     </div>
 
 </div>
