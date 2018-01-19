@@ -23,7 +23,17 @@
         <p>Comments</p>
         <ul>
             {% for comment in comments %}
-            <li>{{ comment.body }}</li>
+            <li>
+                {{ comment.body }}
+                <a href="{% url 'new-reply' %}?link_pk={{ object.pk }}&parent_comment_pk={{ comment.pk}}">Reply</a>
+                {% if comment.comment_set.exists %}
+                <ul>
+                    {% for reply in comment.comment_set.all %}
+                    <li>{{ reply.body }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
             {% endfor %}
         </ul>
     </div>
