@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from links.models import Link
 
@@ -36,4 +36,10 @@ class NewCreateView(CreateView):
 
 
     def get_success_url(self):
-        return reverse('links')
+        return reverse('links-detail', kwargs={'pk': self.object.pk})
+
+
+class NewDetailView(DetailView):
+    model = Link
+
+    template_name = 'links/detail.html'

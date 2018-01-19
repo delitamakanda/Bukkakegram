@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ object.title }}{% endblock %}
+
+{% block content %}
+<div class="page dashboard-page">
+    <div class="page-title">
+        <h3><a href="{{ object.url }}" target="_blank">{{ object.title }}</a></h3>
+    </div>
+    <div class="page-content">
+        <p>Author : {{ object.submitter.username }}</p>
+        <p>Created on : {{ object.submitted }}</p>
+    </div>
+
+</div>
+{% endblock %}
