@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Link(models.Model):
@@ -11,6 +12,9 @@ class Link(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('links-detail', args=[self.id])
 
 
 class Comment(models.Model):

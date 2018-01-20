@@ -8,6 +8,7 @@ from django.utils import timezone
 
 from links.models import Link, Comment
 from links.forms import CommentModelForm
+from actions.utils import create_action
 
 # Create your views here.
 class NewCreateView(CreateView):
@@ -26,6 +27,8 @@ class NewCreateView(CreateView):
         new_link = form.save(commit=False)
         new_link.submitter = self.request.user
         new_link.save()
+
+        create_action(self.request.user, 'create a link', new_link)
 
         self.object = new_link
 
