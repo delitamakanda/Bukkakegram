@@ -25,11 +25,17 @@
             {% for comment in comments %}
             <li>
                 {{ comment.body }}
+                by {{ comment.commented_by.username }}
+                at {{ comment.created_on }}
                 <a href="{% url 'new-reply' %}?link_pk={{ object.pk }}&parent_comment_pk={{ comment.pk}}">Reply</a>
                 {% if comment.comment_set.exists %}
                 <ul>
                     {% for reply in comment.comment_set.all %}
-                    <li>{{ reply.body }}</li>
+                    <li>
+                        {{ reply.body }}
+                        by {{ reply.commented_by.username }}
+                        at {{ reply.created_on }}
+                    </li>
                     {% endfor %}
                 </ul>
                 {% endif %}

@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, TemplateView
 
 from links.models import Link, Comment
 from links.forms import CommentModelForm
@@ -20,11 +20,6 @@ class NewCreateView(CreateView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(NewCreateView, self).dispatch(*args,**kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(NewCreateView, self).get_context_data(**kwargs)
-        context['section'] = 'links'
-        return context
 
     def form_valid(self, form):
         new_link = form.save(commit=False)
@@ -122,3 +117,14 @@ class NewCommentReplyView(CreateView):
         new_comment.save()
 
         return HttpResponseRedirect(reverse('links-detail', kwargs={'pk': parent_link.pk}))
+
+
+class NewListView(TemplateView):
+    template_name = 'links/list.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(NewListView, self).get_context_data(**kwargs)
+        context['section'] = 'links'
+        context['links'] = Link.objects.all()
+
+        return context
