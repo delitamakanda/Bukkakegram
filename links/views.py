@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, TemplateView, View
+from django.utils import timezone
 
 from links.models import Link, Comment
 from links.forms import CommentModelForm
@@ -125,7 +126,21 @@ class NewListView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(NewListView, self).get_context_data(**kwargs)
         context['section'] = 'links'
-        context['links'] = Link.objects.all()
+
+        now = timezone.now()
+        submissions = Link.objects.all()
+        for submission in submissions:
+            num_votes = submission.upvotes.count()
+            num_comments = submission.comment_set.count()
+
+            date_diff = now - submission.submitted
+            number_of_days_since_post = date_diff.days
+
+            submission.rank = num_votes + num_comments - number_of_days_since_post
+
+        sorted_submissions = sorted(submissions, key=lambda x: x.rank, reverse=True)
+
+        context['links'] = sorted_submissions
 
         return context
 
