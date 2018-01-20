@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
 from django.http.response import HttpResponseRedirect
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, DetailView, TemplateView
+from django.views.generic import CreateView, DetailView, TemplateView, View
 
 from links.models import Link, Comment
 from links.forms import CommentModelForm
@@ -128,3 +128,20 @@ class NewListView(TemplateView):
         context['links'] = Link.objects.all()
 
         return context
+
+
+class UpVoteLinkView(View):
+
+    def get(self, request, link_pk, **kwargs):
+        link = Link.objects.get(pk=link_pk)
+        link.upvotes.add(request.user)
+
+        return HttpResponseRedirect(reverse('links'))
+
+class RemoveVoteLinkView(View):
+
+    def get(self, request, link_pk, **kwargs):
+        link = Link.objects.get(pk=link_pk)
+        link.upvotes.remove(request.user)
+
+        return HttpResponseRedirect(reverse('links'))

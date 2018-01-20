@@ -12,6 +12,11 @@
         <ul>
             {% for link in links %}
             <li>
+                {% if request.user in link.upvotes.all %}
+                <a href="{% url 'downvote' link_pk=link.pk %}" title="downvote"><i class="icon ion-thumbsup"></i></a>
+                {% else %}
+                <a href="{% url 'upvote' link_pk=link.pk %}" class="upvote" title="upvote"><i class="icon ion-thumbsup"></i></a>
+                {% endif %}
                 <a href="{{ link.url}}" target="_blank">{{ link.title }}</a>
                 <em><a href="{% url 'links-detail' pk=link.pk %}">Comments</a></em>
             </li>
