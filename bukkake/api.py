@@ -13,7 +13,7 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'user'
         fields = ['username', 'first_name', 'last_name', 'last_login']
-        authorization = DjangoAuthorization()
+        # authorization = DjangoAuthorization()
         throttle = BaseThrottle(throttle_at=100)
         filtering = {
             'username': ALL,
@@ -27,8 +27,8 @@ class BukkakeResource(ModelResource):
         allowed_methods = ['get']
         queryset = Bukkake.objects.all()
         resource_name = 'bukkake'
-        authorization = Authorization()
-        authentication = BasicAuthentication()
+        # authorization = Authorization()
+        # authentication = BasicAuthentication()
         throttle = CacheThrottle()
         paginator_class = Paginator
         filtering = {
