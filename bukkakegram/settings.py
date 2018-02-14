@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'channels',
     'channels_presence',
     'celery',
-    'django_celery_beat',
     'tastypie',
     'links',
 ]
