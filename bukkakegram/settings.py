@@ -41,15 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'social_core',
     'social_django',
-    'bukkake',
-    'actions',
     'sorl.thumbnail',
     'storages',
     'channels',
     'channels_presence',
     'celery',
-    'tastypie',
-    'links',
+    'bukkake',
+    'actions',
 ]
 
 MIDDLEWARE = [

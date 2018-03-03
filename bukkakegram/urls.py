@@ -17,19 +17,12 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from tastypie.api import Api
-from bukkake.api import BukkakeResource, UserResource
 
-v1_api = Api(api_name='v1')
-v1_api.register(UserResource())
-v1_api.register(BukkakeResource())
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('account.urls')),
-    url(r'^links/', include('links.urls')),
     url(r'^', include('bukkake.urls', namespace='bukkakes')),
-    url(r'^api/', include(v1_api.urls)),
     url(r'^social-auth/', include('social_django.urls', namespace='social')),
 ]
 

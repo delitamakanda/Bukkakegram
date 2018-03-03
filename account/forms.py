@@ -7,9 +7,10 @@ import markdown
 from django.utils.html import escape
 import re
 
-class LoginForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)
+# TODO: A supprimer
+# class LoginForm(forms.Form):
+    # username = forms.CharField()
+    # password = forms.CharField(widget=forms.PasswordInput)
 
 
 class UserRegistrationForm(forms.ModelForm):

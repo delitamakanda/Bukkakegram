@@ -4,9 +4,9 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
+from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
-from .models import Profile, Contact, ChatMessage
+from account.models import Profile, Contact, ChatMessage
 from django.contrib.auth.models import User
 from actions.utils import create_action
 from actions.models import Action
@@ -85,25 +85,25 @@ def user_follow(request):
             return JsonResponse({ 'status': 'ko'})
     return JsonResponse({'status': 'ko'})
 
-# Create your views here.
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(username=cd['username'], password=cd['password'])
+# TODO: A supprimer
+# def user_login(request):
+    # if request.method == 'POST':
+        # form = LoginForm(request.POST)
+        # if form.is_valid():
+            # cd = form.cleaned_data
+            # user = authenticate(username=cd['username'], password=cd['password'])
 
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponse('Authenticated successfully')
-                else:
-                    return HttpResponse('Disabled account')
-            else:
-                return HttpResponse('Invalid login')
-    else:
-        form = LoginForm()
-    return render(request, 'account/login.html', {'form':form})
+            # if user is not None:
+                # if user.is_active:
+                    # login(request, user)
+                    # return HttpResponse('Authenticated successfully')
+                # else:
+                    # return HttpResponse('Disabled account')
+            # else:
+                # return HttpResponse('Invalid login')
+    # else:
+        # form = LoginForm()
+    # return render(request, 'account/login.html', {'form':form})
 
 
 class ChatRoomView(View):
