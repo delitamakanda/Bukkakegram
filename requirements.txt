@@ -19,7 +19,7 @@ social-auth-core==1.4.0
 sorl-thumbnail==12.4a1
 urllib3==1.22
 hellowebapp-deploy==1.0.2
-psycopg2
+psycopg2-binary
 django-storages==1.6.5
 boto3==1.4.7
 python-openid
