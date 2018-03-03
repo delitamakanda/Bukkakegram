@@ -3,7 +3,8 @@ from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
-from django.contrib.auth import authenticate, login
+# TODO: A supprimer
+# from django.contrib.auth import authenticate, login
 from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
 from account.models import Profile, Contact, ChatMessage
