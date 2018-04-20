@@ -51,14 +51,19 @@ def image_detail(request, id, slug):
 @login_required
 def update_bukkake(request, id):
     bukkake = get_object_or_404(Bukkake, id=id)
-    form = BukkakeCreateForm(request.POST or None, instance=bukkake)
-    if form.is_valid():
-        form.save()
+    if request.method == 'POST':
+        form = BukkakeCreateForm(data=request.POST, instance=bukkake)
+        if form.is_valid():
+            form.save()
         
-        create_action(request.user, 'updated image', bukkake)
-        messages.success(request, 'Bukkake updated successfully.')
+            create_action(request.user, 'updated image', bukkake)
+            messages.success(request, 'Bukkake updated successfully.')
         
-        return redirect(bukkake.get_absolute_url())
+            return redirect(bukkake.get_absolute_url())
+        else:
+            messages.error(request, 'Error updating your bukkake')
+    else:
+        form = BukkakeCreateForm(instance=bukkake)
 
     return render(request, 'bukkakes/image/create.html', {'form': form})
     
