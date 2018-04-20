@@ -74,7 +74,7 @@ def delete_bukkake(request, id):
         bukkake.delete()
         messages.success(request, 'Bukkake deleted successfully.')
         return redirect('bukkakes:list')
-    # return render(request, 'bukkakes/image/detail.html', {'bukkake': 'bukkake' })
+    return render(request, 'bukkakes/image/detail.html', {'bukkake': 'bukkake' })
 
 @ajax_required
 @login_required
