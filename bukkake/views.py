@@ -48,6 +48,28 @@ def image_detail(request, id, slug):
     r.zincrby('image_ranking', image.id, 1)
     return render(request, 'bukkakes/image/detail.html', {'section': 'bukkakes', 'image': image, 'total_views': total_views })
 
+@login_required
+def update_bukkake(request, id):
+    bukkake = get_object_or_404(Bukkake, id=id)
+    form = BukkakeCreateForm(request.POST or None, instance=bukkake)
+    if form.is_valid():
+        form.save()
+        
+        create_action(request.user, 'updated image', bukkake)
+        messages.success(request, 'Bukkake updated successfully.')
+        
+        return redirect(bukkake.get_absolute_url())
+
+    return render(request, 'bukkakes/image/create.html', {'section': 'bukkakes', 'form': form})
+    
+@login_required
+def delete_bukkake(request, id):
+    bukkake = get_object_or_404(Bukkake, id=id)
+    if request.method == 'POST':
+        bukkake.delete()
+        messages.success(request, 'Bukkake deleted successfully.')
+        return redirect('bukkakes:list')
+    return render(request, 'bukkakes/image/detail.html', {'bukkake': 'bukkake' })
 
 @ajax_required
 @login_required
@@ -100,3 +122,4 @@ def image_ranking(request):
 def popular_images(request):
     images_by_popularity = Bukkake.objects.order_by('-total_likes')[:10]
     return render(request, 'bukkakes/image/popular.html', {'images_by_popularity': images_by_popularity})
+
