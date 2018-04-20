@@ -10,7 +10,7 @@
     </div>
     <div class="page-content">
         
-        {% if request.user.username == image.user %}
+        {% if user == self.user %}
             <a href="{% url "bukkakes:update" image.id %}">Edit</a>
             <a href="{% url "bukkakes:delete" image.id %}">Delete</a>
         {% endif %}
