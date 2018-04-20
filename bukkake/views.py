@@ -60,7 +60,7 @@ def update_bukkake(request, id):
         
         return redirect(bukkake.get_absolute_url())
 
-    return render(request, 'bukkakes/image/create.html', {'section': 'bukkakes', 'form': form})
+    return render(request, 'bukkakes/image/create.html', {'bukkake': bukkake, 'form': form})
     
 @login_required
 def delete_bukkake(request, id):
