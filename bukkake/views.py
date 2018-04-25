@@ -50,7 +50,7 @@ def image_detail(request, id, slug):
 
 @login_required
 def update_bukkake(request, id):
-    bukkake = get_object_or_404(Bukkake, id=id)
+    bukkake = Bukkake.objects.get(id=id)
     if request.method == 'POST':
         form = BukkakeCreateForm(data=request.POST, instance=bukkake)
         if form.is_valid():
@@ -69,11 +69,11 @@ def update_bukkake(request, id):
     
 @login_required
 def delete_bukkake(request, id):
-    bukkake = get_object_or_404(Bukkake, id=id)
+    bukkake = Bukkake.objects.get(id=id)
     if request.method == 'POST':
         bukkake.delete()
         messages.success(request, 'Bukkake deleted successfully.')
-        return redirect('bukkakes:list')
+        return redirect('/')
     return render(request, 'bukkakes/image/detail.html', {'bukkake': 'bukkake' })
 
 @ajax_required
