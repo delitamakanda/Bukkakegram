@@ -65,7 +65,7 @@ def update_bukkake(request, id):
             messages.error(request, 'Error updating your bukkake')
     else:
         form = BukkakeCreateForm(request.POST or None, instance=bukkake)
-    return render(request, 'bukkakes/image/create.html', {'form': form})
+    return render(request, 'bukkakes/image/create.html', {'form': form, 'bukkake': bukkake})
     
 @login_required
 def delete_bukkake(request, id):
