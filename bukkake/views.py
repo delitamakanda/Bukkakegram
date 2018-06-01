@@ -70,10 +70,12 @@ def update_bukkake(request, id):
 @login_required
 def delete_bukkake(request, id):
     bukkake = Bukkake.objects.get(id=id)
-    if request.method == 'POST':
+    if bukkake:
         bukkake.delete()
         messages.success(request, 'Bukkake deleted successfully.')
         return redirect('/')
+    else:
+        messages.error(request, 'An error occured')
     return render(request, 'bukkakes/image/detail.html', {'bukkake': 'bukkake' })
 
 @ajax_required
