@@ -63,6 +63,8 @@ def update_bukkake(request, id):
             return redirect(bukkake.get_absolute_url())
         else:
             messages.error(request, 'Error updating your bukkake')
+    else:
+        form = BukkakeCreateForm(request.POST or None, instance=bukkake)
     return render(request, 'bukkakes/image/create.html', {'form': form})
     
 @login_required
