@@ -53,6 +53,9 @@ def update_bukkake(request, id):
     bukkake = Bukkake.objects.get(id=id)
     form = BukkakeCreateForm(request.POST or None, instance=bukkake)
     if form.is_valid():
+        bukkake.title = form.cleaned_data['title']
+        bukkake.url = form.cleaned_data['url']
+        bukkake.description = form.cleaned_data['description']
         form.save()
         create_action(request.user, 'updated image', bukkake)
         messages.success(request, 'Bukkake updated successfully.')
