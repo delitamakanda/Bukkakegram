@@ -51,7 +51,10 @@ def image_detail(request, id, slug):
 @login_required
 def update_bukkake(request, id):
     bukkake = Bukkake.objects.get(id=id)
-    if request.method == 'POST':
+    if request.user != bukkake.user:
+        messages.error(request, 'You are not authorized to edit this.')
+        return redirect('/')
+    elif request.method == 'POST':
         form = BukkakeCreateForm(data=request.POST, files=request.FILES, instance=bukkake)
         if form.is_valid():
             # bukkake.title = form.cleaned_data['title']
@@ -65,12 +68,15 @@ def update_bukkake(request, id):
             messages.error(request, 'Error updating your bukkake')
     else:
         form = BukkakeCreateForm(instance=bukkake)
-    return render(request, 'bukkakes/image/create.html', {'form': form})
-    
+    return render(request, 'bukkakes/image/create.html', {'form': form, 'bukkake': bukkake})
+
 @login_required
 def delete_bukkake(request, id):
     bukkake = Bukkake.objects.get(id=id)
-    if bukkake:
+    if request.user != bukkake.user:
+        messages.info(request, 'You are not authorized to edit this.')
+        return redirect('/')
+    elif bukkake:
         bukkake.delete()
         messages.success(request, 'Bukkake deleted successfully.')
         return redirect('/')
@@ -129,4 +135,3 @@ def image_ranking(request):
 def popular_images(request):
     images_by_popularity = Bukkake.objects.order_by('-total_likes')[:10]
     return render(request, 'bukkakes/image/popular.html', {'images_by_popularity': images_by_popularity})
-
