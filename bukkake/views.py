@@ -60,7 +60,7 @@ def update_bukkake(request, id):
             bukkake.title = form.cleaned_data['title']
             bukkake.url = form.cleaned_data['url']
             bukkake.description = form.cleaned_data['description']
-            form.save(commit=True)
+            form.save()
             create_action(request.user, 'updated image', bukkake)
             messages.success(request, 'Bukkake updated successfully.')
             return redirect(bukkake.get_absolute_url())
