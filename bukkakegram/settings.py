@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'channels',
     'channels_presence',
     'celery',
-    'bukkake',
+    'bukkake.apps.BukkakeConfig',
     'actions',
 ]
 
