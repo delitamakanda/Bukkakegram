@@ -7,6 +7,7 @@ if settings.DEBUG:
 else:
     r = redis.from_url(settings.REDISTOGO_URL)
 
+from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -36,7 +37,7 @@ def image_create(request):
 
             return redirect(new_item.get_absolute_url())
     else:
-        form = BukkakeCreateForm(data=request.GET)
+        form = BukkakeCreateForm()
 
     return render(request, 'bukkakes/image/create.html', {'section': 'bukkakes', 'form': form})
 
@@ -51,25 +52,33 @@ def image_detail(request, id, slug):
 
 @login_required
 def update_bukkake(request, id):
-    bukkake = Bukkake.objects.get(id=id)
+    if id is not None:
+        bukkake = Bukkake.objects.get(id=id)
+    else:
+        raise AttributeError("No user with this id %s", id)
+
     if request.user != bukkake.user:
         messages.error(request, 'You are not authorized to edit this.')
         return redirect('/')
-    if request.method == 'POST':
-        form = BukkakeCreateForm(instance=bukkake)
-        if form.is_valid():
-            bukkake = form.save(commit=False)
-            
-            bukkake.updated = timezone.now
-            form.save()
-            create_action(request.user, 'updated image', bukkake)
-            messages.success(request, 'Bukkake updated successfully.')
-            return redirect(bukkake.get_absolute_url())
-        else:
-            messages.error(request, 'Error updating your bukkake')
     else:
-        form = BukkakeCreateForm(instance=bukkake)
+        if request.method == 'POST':
+            form = BukkakeCreateForm(request.POST)
+
+            if form.is_valid():
+                bukkake = form.save(commit=False)
+
+                bukkake.user = request.user
+                bukkake.updated = timezone.now
+                form.save()
+                create_action(request.user, 'updated image', bukkake)
+                messages.success(request, 'Bukkake updated successfully.')
+                return redirect(bukkake.get_absolute_url())
+            else:
+                messages.error(request, 'Error updating your bukkake')
+        else:
+            form = BukkakeCreateForm(instance=bukkake)
     return render(request, 'bukkakes/image/create.html', {'form': form})
+
 
 @login_required
 def delete_bukkake(request, id):
