@@ -18,6 +18,7 @@ from .forms import BukkakeCreateForm
 from .models import Bukkake
 from actions.utils import create_action
 from django.db.models import Count
+from django.utils import timezone
 
 # Create your views here.
 @login_required
@@ -54,14 +55,13 @@ def update_bukkake(request, id):
     if request.user != bukkake.user:
         messages.error(request, 'You are not authorized to edit this.')
         return redirect('/')
-    elif request.method == 'POST':
-        form = BukkakeCreateForm(data=request.POST, files=request.FILES, instance=bukkake)
+    if request.method == 'POST':
+        form = BukkakeCreateForm(data=request.POST, instance=bukkake)
         if form.is_valid():
             bukkake = form.save(commit=False)
             
-            bukkake.title = form.cleaned_data['title']
-            bukkake.url = form.cleaned_data['url']
-            bukkake.description = form.cleaned_data['description']
+            bukkake.user = request.user
+            bukkake.updated = timezone.now
             form.save()
             create_action(request.user, 'updated image', bukkake)
             messages.success(request, 'Bukkake updated successfully.')
