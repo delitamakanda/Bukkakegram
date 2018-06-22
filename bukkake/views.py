@@ -59,7 +59,8 @@ def update_bukkake(request, id):
         form = BukkakeCreateForm(data=request.POST, instance=bukkake)
         if form.is_valid():
             bukkake = form.save(commit=False)
-            
+            bukkake.title = request.POST['title']
+            bukkake.description = request.POST['description']
             bukkake.user = request.user
             bukkake.updated = timezone.now
             form.save()
