@@ -56,12 +56,10 @@ def update_bukkake(request, id):
         messages.error(request, 'You are not authorized to edit this.')
         return redirect('/')
     if request.method == 'POST':
-        form = BukkakeCreateForm(data=request.POST, instance=bukkake)
+        form = BukkakeCreateForm(instance=bukkake)
         if form.is_valid():
             bukkake = form.save(commit=False)
-            bukkake.title = request.POST['title']
-            bukkake.description = request.POST['description']
-            bukkake.user = request.user
+            
             bukkake.updated = timezone.now
             form.save()
             create_action(request.user, 'updated image', bukkake)
@@ -71,7 +69,7 @@ def update_bukkake(request, id):
             messages.error(request, 'Error updating your bukkake')
     else:
         form = BukkakeCreateForm(instance=bukkake)
-    return render(request, 'bukkakes/image/create.html', {'form': form, 'bukkake': bukkake})
+    return render(request, 'bukkakes/image/create.html', {'form': form})
 
 @login_required
 def delete_bukkake(request, id):
