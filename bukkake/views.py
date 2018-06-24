@@ -7,7 +7,6 @@ if settings.DEBUG:
 else:
     r = redis.from_url(settings.REDISTOGO_URL)
 
-from django.core.urlresolvers import reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -50,34 +49,6 @@ def image_detail(request, id, slug):
     r.zincrby('image_ranking', image.id, 1)
     return render(request, 'bukkakes/image/detail.html', {'section': 'bukkakes', 'image': image, 'total_views': total_views })
 
-@login_required
-def update_bukkake(request, id):
-    if id is not None:
-        bukkake = Bukkake.objects.get(id=id)
-    else:
-        raise AttributeError("No user with this id %s", id)
-
-    if request.user != bukkake.user:
-        messages.error(request, 'You are not authorized to edit this.')
-        return redirect('/')
-    else:
-        if request.method == 'POST':
-            form = BukkakeCreateForm(request.POST)
-
-            if form.is_valid():
-                bukkake = form.save(commit=False)
-
-                bukkake.user = request.user
-                bukkake.updated = timezone.now
-                form.save()
-                create_action(request.user, 'updated image', bukkake)
-                messages.success(request, 'Bukkake updated successfully.')
-                return redirect(bukkake.get_absolute_url())
-            else:
-                messages.error(request, 'Error updating your bukkake')
-        else:
-            form = BukkakeCreateForm(instance=bukkake)
-    return render(request, 'bukkakes/image/create.html', {'form': form})
 
 
 @login_required

@@ -10,11 +10,6 @@
     </div>
     <div class="page-content">
 
-        {% if image.user == user %}
-            <a href="{% url "bukkakes:update" image.id %}">Edit</a>
-            <a href="{% url "bukkakes:delete" image.id %}">Delete</a>
-        {% endif %}
-
         {% thumbnail image.image "300" as im %}
         <a href="{{ image.image.url }}">
             <img src="{{ im.url }}" class="image-detail">
@@ -44,6 +39,10 @@
                             Unlike
                         {% endif %}
                     </a>
+
+                    {% if image.user == user %}
+                        <a href="{% url "bukkakes:delete" image.id %}"><i class="icon ion-trash-a"></i> Delete</a>
+                    {% endif %}
                 </div>
                 {{ image.description|linebreaks }}
             </div>
