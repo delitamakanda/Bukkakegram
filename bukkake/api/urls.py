@@ -1,6 +1,8 @@
-from django.conf.urls import url
-from . import views
+from django.conf.urls import url, include
+from .api import BukkakeResource
+
+bukkake_resource = BukkakeResource()
 
 urlpatterns = [
-    # url(r'^create/$', views.image_create, name='create'),
+    url(r'^v1/', include(bukkake_resource.urls)),
 ]

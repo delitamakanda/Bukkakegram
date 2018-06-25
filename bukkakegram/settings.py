@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'celery',
     'bukkake.apps.BukkakeConfig',
     'actions',
+    'tastypie',
 ]
 
 SITE_ID = 1

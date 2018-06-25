@@ -23,3 +23,4 @@ asgiref==2.0.1
 Twisted==17.9.0
 whitenoise
 django-allauth==0.36.0
+django-tastypie==0.14.1
