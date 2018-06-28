@@ -114,5 +114,5 @@ def image_ranking(request):
 
 @login_required
 def popular_images(request):
-    images_by_popularity = Bukkake.objects.order_by('-total_likes')[:10]
+    images_by_popularity = Bukkake.objects.order_by('total_likes')[:10]
     return render(request, 'bukkakes/image/popular.html', {'images_by_popularity': images_by_popularity})
