@@ -10,7 +10,7 @@ class BukkakeCreateForm(forms.ModelForm):
 
     class Meta:
         model = Bukkake
-        fields = ('title', 'url', 'description',)
+        fields = ('title', 'url', 'description', 'filters',)
         widget = {
             'url': forms.HiddenInput,
         }
