@@ -5,6 +5,21 @@ from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Bukkake(models.Model):
+    FILTER_IMAGES = (
+        ('no', 'normal'),
+        ('cl', 'clarendon'),
+        ('gi', 'gingham'),
+        ('mo', 'moon'),
+        ('la', 'lark'),
+        ('re', 'reyes'),
+        ('ju', 'juno'),
+        ('sl', 'slumber'),
+        ('ad', 'aden'),
+        ('pe', 'perpetua'),
+        ('ma', 'mayfair'),
+        ('ri', 'rise'),
+        ('hu', 'hudson'),
+    )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='bukkakes_created')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=255, blank=True)
@@ -15,6 +30,11 @@ class Bukkake(models.Model):
     updated = models.DateTimeField(auto_now=True, db_index=True)
     users_like = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='bukkakes_liked', blank=True)
     total_likes = models.PositiveIntegerField(db_index=True, default=0)
+    filters = models.CharField(
+        max_length=2,
+        choices=FILTER_IMAGES,
+        default='no'
+    )
 
     def __str__(self):
         return self.title
