@@ -1,5 +1,6 @@
 import datetime
 
+from tastypie import fields
 from tastypie.authentication import Authentication
 from tastypie.authorization import Authorization
 from django.utils.timezone import utc
@@ -8,6 +9,7 @@ from tastypie.resources import ModelResource
 from bukkake.models import Bukkake
 
 class BukkakeResource(ModelResource):
+    filters = fields.CharField(attribute='get_filters_display')
 
     class Meta:
         queryset = Bukkake.objects.all()
@@ -16,3 +18,6 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
+
+    def get_filters(self, obj):
+        return obj.get_filters_display()
