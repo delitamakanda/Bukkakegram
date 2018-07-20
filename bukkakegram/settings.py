@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'bukkake.middleware.CorsMiddleware,
+    'bukkake.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'bukkakegram.urls'
