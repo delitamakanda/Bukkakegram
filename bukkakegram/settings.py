@@ -216,10 +216,9 @@ CHANNEL_LAYERS = {
 # Enabled CORS
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
-    'socialite-light.firebaseapp.com',
+    'socialite-light.firebaseapp.com'
 )
 
 CORS_ALLOW_METHODS = (
-    'GET',
-    'POST',
+    'GET'
 )
