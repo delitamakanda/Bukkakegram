@@ -4,7 +4,7 @@
     <div class="image">
             {% thumbnail image.image "300x300" crop="100%" as im %}
                 <a href="{{ image.get_absolute_url }}">
-                    <img src="{{ im.url }}">
+                    <img src="{{ im.url }}" class="{{ image.get_filters_display }}">
                 </a>
             {% endthumbnail %}
         <div class="info">

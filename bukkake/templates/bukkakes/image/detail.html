@@ -11,8 +11,8 @@
     <div class="page-content">
 
         {% thumbnail image.image "300" as im %}
-        <a href="{{ image.image.url }}">
-            <img src="{{ im.url }}" class="image-detail">
+        <a href="{{ image.image.url }}" class="popin-iframe">
+            <img src="{{ im.url }}" class="image-detail {{ image.get_filters_display }}">
         </a>
         {% endthumbnail %}
 
@@ -83,4 +83,6 @@ $('a.like').on('click', function(e) {
         }
     });
 });
+
+$('.popin-iframe').magnificPopup({type: 'image'});
 {% endblock %}
