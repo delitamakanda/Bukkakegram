@@ -216,7 +216,7 @@ CHANNEL_LAYERS = {
 # Enabled CORS
 CORS_ORIGIN_WHITELIST = (
     'bukkakegram.herokuapp.com',
-    'localhost:*',
+    'localhost:8080',
 )
 
 CORS_ALLOW_METHODS = (
