@@ -29,3 +29,4 @@ requests==2.5.3
 whitenoise
 django-allauth==0.36.0
 django-tastypie==0.14.1
+django-cors-headers==2.4.0
