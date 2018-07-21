@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'bukkake.apps.BukkakeConfig',
     'actions',
     'tastypie',
+    'corsheaders',
 ]
 
 SITE_ID = 1
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -210,3 +212,13 @@ CHANNEL_LAYERS = {
         "ROUTING": "account.routing.channel_routing",
     },
 }
+
+# Enabled CORS
+CORS_ORIGIN_WHITELIST = (
+    'bukkakegram.herokuapp.com',
+    'localhost:*',
+)
+
+CORS_ALLOW_METHODS = (
+    'GET',
+)
