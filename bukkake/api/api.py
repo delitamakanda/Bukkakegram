@@ -9,7 +9,7 @@ from tastypie.resources import ModelResource
 from bukkake.models import Bukkake
 
 class BukkakeResource(ModelResource):
-    filters = fields.CharField(source='get_filters_display')
+    filters = fields.CharField(attribute='get_filters_display')
     
     class Meta:
         queryset = Bukkake.objects.all()
