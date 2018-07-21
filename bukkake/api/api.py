@@ -9,7 +9,6 @@ from tastypie.resources import ModelResource
 from bukkake.models import Bukkake
 
 class BukkakeResource(ModelResource):
-    filters = fields.CharField(attribute='get_filters_display')
 
     class Meta:
         queryset = Bukkake.objects.all()
@@ -18,6 +17,12 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
-
-    def get_filters(self, obj):
-        return obj.get_filters_display()
+    
+    def build_schema(self):
+        base_schema = super(BukkakeResource, self).build_schema()
+        for f in self._meta.object_class._meta.fields:
+            if f.name in base_schema['fields'] and f.choices:
+                base_schema['fields'][f.name].update({
+                    'choices': f.choices,
+                })
+        return base_schema
