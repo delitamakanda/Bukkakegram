@@ -217,8 +217,10 @@ CHANNEL_LAYERS = {
 CORS_ORIGIN_WHITELIST = (
     'bukkakegram.herokuapp.com',
     'localhost:8080',
+    'socialite-light.firebaseapp.com',
 )
 
 CORS_ALLOW_METHODS = (
     'GET',
+    'POST',
 )
