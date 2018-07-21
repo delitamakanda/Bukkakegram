@@ -104,15 +104,13 @@ def image_list(request):
 
 @login_required
 def image_ranking(request):
-    #get image ranking dictionary
+    # get image ranking dictionary
     image_ranking = r.zrange('image_ranking', 0, -1, desc=True)[:10]
     image_ranking_ids = [int(id) for id in image_ranking]
     # get most viewed images
     most_viewed = list(Bukkake.objects.filter(id__in=image_ranking_ids))
     most_viewed.sort(key=lambda x: image_ranking_ids.index(x.id))
-    return render(request, 'bukkakes/image/ranking.html', {'most_viewed': most_viewed})
 
-@login_required
-def popular_images(request):
-    images_by_popularity = Bukkake.objects.order_by('total_likes')[:10]
-    return render(request, 'bukkakes/image/popular.html', {'images_by_popularity': images_by_popularity})
+    # get most popular images
+    images_by_popularity = Bukkake.objects.order_by('-total_likes')[:10]
+    return render(request, 'bukkakes/image/ranking.html', {'most_viewed': most_viewed, 'images_by_popularity': images_by_popularity})

@@ -10,7 +10,7 @@ from bukkake.models import Bukkake
 
 class BukkakeResource(ModelResource):
     filters = fields.CharField(attribute='get_filters_display')
-    
+
     class Meta:
         queryset = Bukkake.objects.all()
         detail_allowed_methods = ['get']
@@ -18,7 +18,6 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
-    
+
     def get_filters(self, obj):
         return obj.get_filters_display()
-        

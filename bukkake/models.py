@@ -5,20 +5,33 @@ from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Bukkake(models.Model):
+    NORMAL = 'no'
+    CLARENDON = 'cl'
+    GINGHAM = 'gi'
+    MOON = 'mo'
+    LARK = 'la'
+    REYES = 're'
+    JUNO = 'ju'
+    SLUMBER = 'sl'
+    ADEN = 'ad'
+    PERPETUA = 'pe'
+    MAYFAIR = 'ma'
+    RISE = 'ri'
+    HUDSON = 'hu'
     FILTER_IMAGES = (
-        ('no', 'normal'),
-        ('cl', 'clarendon'),
-        ('gi', 'gingham'),
-        ('mo', 'moon'),
-        ('la', 'lark'),
-        ('re', 'reyes'),
-        ('ju', 'juno'),
-        ('sl', 'slumber'),
-        ('ad', 'aden'),
-        ('pe', 'perpetua'),
-        ('ma', 'mayfair'),
-        ('ri', 'rise'),
-        ('hu', 'hudson'),
+        (NORMAL, 'normal'),
+        (CLARENDON, 'clarendon'),
+        (GINGHAM, 'gingham'),
+        (MOON, 'moon'),
+        (LARK, 'lark'),
+        (REYES, 'reyes'),
+        (JUNO, 'juno'),
+        (SLUMBER, 'slumber'),
+        (ADEN, 'aden'),
+        (PERPETUA, 'perpetua'),
+        (MAYFAIR, 'mayfair'),
+        (RISE, 'rise'),
+        (HUDSON, 'hudson'),
     )
     user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='bukkakes_created')
     title = models.CharField(max_length=200)
@@ -33,7 +46,7 @@ class Bukkake(models.Model):
     filters = models.CharField(
         max_length=2,
         choices=FILTER_IMAGES,
-        default='no'
+        default=NORMAL
     )
 
     def __str__(self):

@@ -6,5 +6,5 @@ class BukkakeConfig(AppConfig):
     verbose_name = 'Images bookmarks'
 
     def ready(self):
-        #import signals handlers
-        from .signals import users_like_changed
+        # import signals handlers
+        from bukkake.signals import users_like_changed
