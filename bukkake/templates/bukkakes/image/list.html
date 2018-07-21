@@ -8,8 +8,7 @@
         <h3>Images bookmarked</h3>
     </div>
     <div class="page-content">
-        <a href="{% url 'bukkakes:ranking' %}">10 most viewed images</a> and
-        <a href="{% url 'bukkakes:popular' %}">10 most popular images</a>
+        <a href="{% url 'bukkakes:ranking' %}">10 most viewed / popular images</a>
         <div id="image-list">
             {% include "bukkakes/image/list_ajax.html" %}
         </div>

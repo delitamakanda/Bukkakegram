@@ -8,15 +8,47 @@
         <h3>Images ranking</h3>
     </div>
     <div class="page-content">
-        <ol>
-            {% for image in most_viewed %}
-                <li>
-                    <a href="{{ image.get_absolute_url }}">
-                        {{ image.title }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ol>
+        <h4>Most viewed</h4>
+
+        <div class="row">
+            <div class="row__inner">
+                {% for image in most_viewed %}
+                    <div class="title">
+                        <div class="title__media">
+                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.url }}" alt=""  />
+                        </div>
+                        <div class="tile__details">
+                            <div class="tile__title">
+                                <a href="{{ image.get_absolute_url }}">
+                                    {{ image.title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <h4>Popular images</h4>
+
+        <div class="row">
+            <div class="row__inner">
+                {% for image in images_by_popularity %}
+                    <div class="title">
+                        <div class="title__media">
+                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.url }}" alt=""  />
+                        </div>
+                        <div class="tile__details">
+                            <div class="tile__title">
+                                <a href="{{ image.get_absolute_url }}">
+                                    {{ image.title }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 
 </div>
