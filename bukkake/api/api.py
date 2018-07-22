@@ -15,6 +15,7 @@ class UserResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
         resource_name = 'user'
+        detail_allowed_methods = ['get']
         excludes = ['password', 'is_active', 'email', 'is_staff','is_superuser']
         filtering = {
             'username': ALL,
@@ -26,6 +27,7 @@ class ProfileResource(ModelResource):
 
     class Meta:
         queryset = Profile.objects.all()
+        detail_allowed_methods = ['get']
         resource_name = 'profile'
 
 
