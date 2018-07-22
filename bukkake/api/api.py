@@ -1,7 +1,7 @@
 import datetime
 
 from tastypie import fields
-from tastypie.authentication import SessionAuthentication
+from tastypie.authorization import Authorization
 from django.utils.timezone import utc
 from django.contrib.auth.models import User
 
@@ -15,8 +15,7 @@ class UserResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
         resource_name = 'user'
-        excludes = ['password', 'is_active', 'last_name', 'first_name', 'is_staff','is_superuser']
-        # authentication = SessionAuthentication()
+        excludes = ['password', 'is_active', 'email', 'is_staff','is_superuser']
         filtering = {
             'username': ALL,
         }
@@ -42,13 +41,12 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
+        authorization = Authorization()
 
 
     def obj_create(self, bundle, **kwargs):
         return super(BukkakeResource, self).obj_create(bundle, user=bundle.request.user)
 
-    # def authorized_read_list(self, object_list, bundle):
-        # return object_list.filter(user=bundle.request.user)
 
     def get_filters(self, obj):
         return obj.get_filters_display()
