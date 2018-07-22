@@ -16,7 +16,7 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'user'
         excludes = ['password', 'is_active', 'last_name', 'first_name', 'is_staff','is_superuser']
-        authentication = SessionAuthentication()
+        # authentication = SessionAuthentication()
         filtering = {
             'username': ALL,
         }
@@ -47,8 +47,8 @@ class BukkakeResource(ModelResource):
     def obj_create(self, bundle, **kwargs):
         return super(BukkakeResource, self).obj_create(bundle, user=bundle.request.user)
 
-    def authorized_read_list(self, object_list, bundle):
-        return object_list.filter(user=bundle.request.user)
+    # def authorized_read_list(self, object_list, bundle):
+        # return object_list.filter(user=bundle.request.user)
 
     def get_filters(self, obj):
         return obj.get_filters_display()
