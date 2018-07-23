@@ -51,7 +51,7 @@ a:hover { text-decoration: underline; }
 .alert .close { float: right; }
 .alert .close a { color: #fff; }
 .hidden { visibility: hidden; opacity: 0; }
-.row {overflow: scroll;width: 100%;}
+.row {overflow-x: scroll;width: 100%; overflow-y: hidden;}
 .row__inner {transition: 450ms -webkit-transform;transition: 450ms transform;transition: 450ms transform, 450ms -webkit-transform;font-size: 0;white-space: nowrap;margin: 70.3125px 0;padding-bottom: 10px;}
 .title {position: relative;display: inline-block;width: 250px; margin-right: 10px;font-size: 20px;cursor: pointer;transition: 450ms all;-webkit-transform-origin: center left;transform-origin: center left;}
 .tile__img {width: 250px;height: 140.625px;-o-object-fit: cover;object-fit: cover;}
