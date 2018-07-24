@@ -12,7 +12,9 @@
 
         {% thumbnail image.image "300" as im %}
         <a href="{{ image.image.url }}" class="popin-iframe">
-            <img src="{{ im.url }}" class="image-detail {{ image.get_filters_display }}">
+            <figure class="{{ image.get_filters_display }}">
+                <img src="{{ im.url }}" class="image-detail">
+            </figure>
         </a>
         {% endthumbnail %}
 
