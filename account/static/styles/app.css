@@ -64,5 +64,7 @@ a:hover { text-decoration: underline; }
 .row__inner:hover .title {opacity: 0.3;}
 .row__inner:hover .title:hover {-webkit-transform: scale(1.5);transform: scale(1.5);opacity: 1;}
 .title:hover ~ .title {-webkit-transform: translate3d(125px, 0, 0);transform: translate3d(125px, 0, 0);}
+figure:not(.normal) { max-width: 300px; width: auto; }
+.mfp-figure figure:not(.normal) { max-width: initial; }
 @media screen and (min-width: 641px) and (max-width: 1040px) { #image-list .image { width: 49%; text-align: center; } }
 @media screen and (max-width: 640px) { #image-list .image { width: 100%; text-align: center; } }
