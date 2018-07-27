@@ -60,3 +60,14 @@ class Bukkake(models.Model):
 
     def get_absolute_url(self):
         return reverse('bukkakes:detail', args=[self.id, self.slug])
+
+
+class Comment(models.Model):
+    body = models.TextField()
+    commented_on = models.ForeignKey(Bukkake)
+    in_reply_to = models.ForeignKey('self', null=True)
+    commented_by = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_on = models.DateTimeField(auto_now_add=True, editable=False)
+
+    def __str__(self):
+        return '{}. {}'.format(self.commented_on, self.commented_by)

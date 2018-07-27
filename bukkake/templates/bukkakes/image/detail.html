@@ -63,6 +63,34 @@
                 {% endfor %}
             </div>
         {% endwith %}
+
+        <form action="{% url 'bukkakes:new-comment' %}?bukkake_pk={{ image.id }}" method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <input type="submit" value="Comment" class="btn" />
+        </form>
+
+        <ul>
+            {% for comment in comments %}
+            <li>
+                {{ comment.body }}
+                by {{ comment.commented_by.username }}
+                at {{ comment.created_on }}
+                <a href="{% url 'bukkakes:new-reply' %}?bukkake_pk={{ image.id }}&parent_comment_pk={{ comment.pk}}">Reply</a>
+                {% if comment.comment_set.exists %}
+                <ul>
+                    {% for reply in comment.comment_set.all %}
+                    <li>
+                        {{ reply.body }}
+                        by {{ reply.commented_by.username }}
+                        at {{ reply.created_on }}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
     </div>
 
 </div>

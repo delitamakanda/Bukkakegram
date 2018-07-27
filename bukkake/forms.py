@@ -5,6 +5,8 @@ from django.core.files.base import ContentFile
 from django.utils.text import slugify
 from django import forms
 from .models import Bukkake
+from .models import Comment
+from django.conf import settings
 
 class BukkakeCreateForm(forms.ModelForm):
 
@@ -38,3 +40,15 @@ class BukkakeCreateForm(forms.ModelForm):
         if commit:
             image.save()
         return image
+
+
+class CommentModelForm(forms.ModelForm):
+    bukkake_pk = forms.IntegerField(widget=forms.HiddenInput)
+    parent_comment_pk = forms.IntegerField(widget=forms.HiddenInput, required=False)
+
+    class Meta:
+        model = Comment
+        labels = {
+            'body': 'Write a comment'
+        }
+        fields = ('body',)

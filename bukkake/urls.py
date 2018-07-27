@@ -8,4 +8,6 @@ urlpatterns = [
     url(r'^$', views.image_list, name='list'),
     url(r'^ranking/$', views.image_ranking, name='ranking'),
     url(r'^delete/(?P<id>\d+)/$', views.delete_bukkake, name='delete'),
+    url(r'^comment/$', views.NewCommentView.as_view(), name='new-comment'),
+    url(r'^reply/$', views.NewCommentReplyView.as_view(), name='new-reply'),
 ]
