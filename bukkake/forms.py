@@ -1,6 +1,6 @@
 import ssl
 
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from django.core.files.base import ContentFile
 from django.utils.text import slugify
 from django import forms
@@ -34,7 +34,8 @@ class BukkakeCreateForm(forms.ModelForm):
         ctx = ssl.create_default_context()
         ctx.check_hostname = False
         ctx.verify_mode = ssl.CERT_NONE
-        response = urlopen(image_url, context=ctx)
+        req = Request(image_url', headers={'User-Agent': 'Mozilla/5.0'})
+        response = urlopen(req, context=ctx)
         image.image.save(image_name, ContentFile(response.read()), save=False)
 
         if commit:
