@@ -21,9 +21,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^account/', include('account.urls')),
+    url(r'^registration/', include('registration.urls')),
     url(r'^', include('bukkake.urls', namespace='bukkakes')),
     url(r'^api/', include('bukkake.api.urls')),
+    url(r'^accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

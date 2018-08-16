@@ -1,7 +1,7 @@
 from channels.routing import route
 from channels import include
 from channels.staticfiles import StaticFilesConsumer
-from account.consumers import chat_connect, chat_disconnect, chat_receive, loadhistory_connect, loadhistory_disconnect, loadhistory_receive
+from registration.consumers import chat_connect, chat_disconnect, chat_receive, loadhistory_connect, loadhistory_disconnect, loadhistory_receive
 
 chat_routing = [
     route("websocket.connect", chat_connect),

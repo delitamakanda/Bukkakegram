@@ -42,9 +42,3 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = config('EMAIL_PORTS')
 DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
-
-INSTALLED_APPS += (
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.github',
-    'allauth.socialaccount.providers.twitter',
-)

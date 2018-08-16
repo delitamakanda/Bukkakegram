@@ -1,6 +1,6 @@
 from django.contrib import admin
-from account.models import Profile, ChatMessage
-from account.forms import AdminChatMessageForm
+from registration.models import Profile, ChatMessage
+from registration.forms import AdminChatMessageForm
 
 # Register your models here.
 class ProfileAdmin(admin.ModelAdmin):

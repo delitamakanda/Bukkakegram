@@ -5,9 +5,9 @@ from django.views.decorators.http import require_POST
 from common.decorators import ajax_required
 # TODO: A supprimer
 # from django.contrib.auth import authenticate, login
-from account.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
+from registration.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
-from account.models import Profile, Contact, ChatMessage
+from registration.models import Profile, Contact, ChatMessage
 from django.contrib.auth.models import User
 from actions.utils import create_action
 from actions.models import Action

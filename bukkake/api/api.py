@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
 from bukkake.models import Bukkake
-from account.models import Profile
+from registration.models import Profile
 
 
 class UserResource(ModelResource):

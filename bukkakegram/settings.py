@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'account',
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'sorl.thumbnail',
     'allauth',
+    'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
     'allauth.socialaccount.providers.google',
@@ -154,6 +155,10 @@ LOGIN_REDIRECT_URL = reverse_lazy('dashboard')
 LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_EMAIL_VERIFICATION = "none"
+SOCIALACCOUNT_QUERY_EMAIL = True
+
 SERVER_EMAIL = config('SERVER_EMAIL')
 
 ADMINS = [
@@ -188,7 +193,7 @@ EMAIL_PORT = 1025
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'account.authentication.EmailAuthBackend',
+    'registration.authentication.EmailAuthBackend',
 )
 
 THUMBNAIL_DEBUG = True
@@ -209,7 +214,7 @@ CHANNEL_LAYERS = {
         "CONFIG": {
             "hosts": [config('REDISTOGO_URL')],
         },
-        "ROUTING": "account.routing.channel_routing",
+        "ROUTING": "registration.routing.channel_routing",
     },
 }
 

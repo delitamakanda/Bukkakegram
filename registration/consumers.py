@@ -1,6 +1,6 @@
 from channels import Group
 from channels.sessions import channel_session
-from account.models import ChatMessage
+from registration.models import ChatMessage
 from django.contrib.auth.models import User
 import json
 from channels.auth import channel_session_user, channel_session_user_from_http
