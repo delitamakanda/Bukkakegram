@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load socialaccount %}
 {% block title %}Create an account{% endblock %}
 
@@ -14,6 +14,10 @@
             {{ user_form.as_p }}
             <input type="submit" class="btn" value="Create an account" />
         </form>
+         
+         <p>
+              Or <a href="{% url 'login' %}">Login</a>
+         </p>
 
     </div>
 
