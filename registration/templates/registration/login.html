@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base2.html' %}
 {% load socialaccount %}
 {% block title %}Login in{% endblock %}
 
@@ -28,6 +28,8 @@
 
     <p>
         <a href="{% url 'password_reset' %}">Forgot your password ?</a>
+        <a href="{% url 'register' %}">Signup</a> or
+        <a href="{% url 'login' %}">Login</a>
     </p>
 
      <h4>Login with</h4>
