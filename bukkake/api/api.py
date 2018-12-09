@@ -48,7 +48,7 @@ class BukkakeResource(ModelResource):
 
     class Meta:
         queryset = Bukkake.objects.all()
-        detail_allowed_methods = ['get', 'post', 'put', 'delete']
+        detail_allowed_methods = ['get', 'post']
         filtering = {
             'user': ALL_WITH_RELATIONS,
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
