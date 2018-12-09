@@ -54,8 +54,8 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
-        authorization = BukkakeAuthorization()
-        authentication = ApiKeyAuthentication()
+        #authorization = BukkakeAuthorization()
+        #authentication = ApiKeyAuthentication()
 
      # def obj_create(self, bundle, **kwargs):
         # return super(BukkakeResource, self).obj_create(bundle, user=bundle.request.user)
