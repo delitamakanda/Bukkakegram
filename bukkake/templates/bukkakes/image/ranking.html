@@ -15,7 +15,7 @@
                 {% for image in most_viewed %}
                     <div class="title">
                         <div class="title__media">
-                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.url }}" alt=""  />
+                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.image.url }}" alt=""  />
                         </div>
                         <div class="tile__details">
                             <div class="tile__title">
@@ -36,7 +36,7 @@
                 {% for image in images_by_popularity %}
                     <div class="title">
                         <div class="title__media">
-                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.url }}" alt=""  />
+                            <img class="tile__img {{ image.get_filters_display }}" src="{{ image.image.url }}" alt=""  />
                         </div>
                         <div class="tile__details">
                             <div class="tile__title">

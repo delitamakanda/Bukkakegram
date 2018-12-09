@@ -16,7 +16,7 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'user'
         detail_allowed_methods = ['get']
-        excludes = ['password', 'is_active', 'email', 'is_staff','is_superuser']
+        excludes = ['password', 'is_active', 'is_staff','is_superuser']
         filtering = {
             'username': ALL,
         }
@@ -43,7 +43,7 @@ class BukkakeResource(ModelResource):
             'title': ['startswith', 'istartswith', 'exact', 'iexact']
         }
         resource_name = 'bukkake'
-        authorization = Authorization()
+        # authorization = Authorization()
 
 
     def obj_create(self, bundle, **kwargs):
