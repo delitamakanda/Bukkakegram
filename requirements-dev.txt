@@ -1,6 +1,6 @@
 certifi==2017.7.27.1
 chardet==3.0.4
-Django==1.11.6
+django==1.11.15
 idna==2.6
 olefile==0.44
 Pillow==4.1.1
@@ -21,7 +21,7 @@ bleach==2.1.2
 markdown==2.6.10
 asgiref==2.0.1
 Twisted==17.9.0
-whitenoise
+whitenoise==3.3.1
 django-allauth==0.36.0
 django-tastypie==0.14.1
 django-cors-headers==2.4.0
