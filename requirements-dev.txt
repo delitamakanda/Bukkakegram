@@ -10,7 +10,7 @@ pytz==2017.2
 redis==2.10.6
 six==1.11.0
 sorl-thumbnail==12.4a1
-urllib3==1.22
+urllib3>=1.23
 django-storages==1.6.5
 boto3==1.4.7
 channels==1.1.8
