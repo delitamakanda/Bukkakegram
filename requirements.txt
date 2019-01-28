@@ -1,6 +1,6 @@
 certifi==2017.7.27.1
 chardet==3.0.4
-django==1.11.15
+django>=1.11.18
 idna==2.6
 olefile==0.44
 Pillow==4.1.1
