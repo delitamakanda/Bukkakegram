@@ -7,11 +7,6 @@ import markdown
 from django.utils.html import escape
 import re
 
-# TODO: A supprimer
-# class LoginForm(forms.Form):
-    # username = forms.CharField()
-    # password = forms.CharField(widget=forms.PasswordInput)
-
 
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
@@ -59,7 +54,7 @@ class AdminChatMessageForm(forms.ModelForm):
                 u'>\\[\\]]+[^\\s`!()\\[\\]{};:\'".,<>?\xab\xbb\u201c\u201d\u2018\u2019])'
             )
         processed_urls = list()
-        for obj in urlRegex.finditer(current_message):
+        for obj in urlRegex.finditer(message_html):
             old_url = obj.group(0)
             if old_url in processed_urls:
                 continue
