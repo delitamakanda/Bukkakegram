@@ -16,7 +16,7 @@ chardet==3.0.4
 constantly==15.1.0
 coreapi==2.3.3
 coreschema==0.0.4
-cryptography==2.8
+cryptography==3.2
 daphne==1.4.2
 Django==2.2.13
 django-channels==0.7.0
